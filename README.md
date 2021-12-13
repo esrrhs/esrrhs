@@ -1,2 +1,2 @@
 ### Hi there 👋
-![GitHub metrics](https://metrics.lecoq.io/esrrhs?languages=1)
+![esrrhs's GitHub stats](https://github-readme-stats.vercel.app/api?username=esrrhs&show_icons=true)
