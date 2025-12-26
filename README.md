@@ -1,3 +1,4 @@
 ### Hi there 👋
-![esrrhs's GitHub stats](https://github-readme-stats.vercel.app/api?username=esrrhs&count_private=true&show_icons=true&theme=noctis_minimus)
-![Top Langs](https://github-readme-stats.vercel.app/api/top-langs/?username=esrrhs&layout=compact&theme=noctis_minimus)
+![esrrhs's GitHub stats](https://github-profile-summary-cards.vercel.app/api/cards/stats?username=esrrhs)
+![Top Langs](https://github-profile-summary-cards.vercel.app/api/cards/repos-per-language?username=esrrhs)
+![Profile Details](https://github-profile-summary-cards.vercel.app/api/cards/profile-details?username=esrrhs)
