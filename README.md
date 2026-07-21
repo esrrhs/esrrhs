@@ -2,6 +2,4 @@
 
 ![Total Stars](https://raw.githubusercontent.com/esrrhs/esrrhs/master/stats.svg)
 
-![GitHub Streak](https://streak-stats.demolab.com?user=esrrhs)
-
-![Activity Graph](https://github-readme-activity-graph.vercel.app/graph?username=esrrhs&theme=github)
+![Top Languages](https://raw.githubusercontent.com/esrrhs/esrrhs/master/languages.svg)
