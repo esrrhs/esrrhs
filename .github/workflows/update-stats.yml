@@ -72,7 +72,6 @@ jobs:
 
           lang_lines = {}
           total_code_lines = 0
-          total_blank_lines = 0
           total_comment_lines = 0
           for r in repos:
               clone_url = r["clone_url"]
@@ -93,7 +92,6 @@ jobs:
               for lang, info in cloc_data.items():
                   if lang == "SUM":
                       total_code_lines += info.get("code", 0)
-                      total_blank_lines += info.get("blank", 0)
                       total_comment_lines += info.get("comment", 0)
                       continue
                   if lang == "header" or lang in SKIP_LANGS:
@@ -121,24 +119,56 @@ jobs:
           OWNER: ${{ github.repository_owner }}
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
-      - name: Generate stats SVG
-        run: |
-          cat > stats.svg <<SVGEOF
-          <svg xmlns="http://www.w3.org/2000/svg" width="280" height="40">
-            <rect width="280" height="40" rx="6" fill="#1b1f23"/>
-            <text x="15" y="26" font-family="Segoe UI, Arial, sans-serif" font-size="14" fill="#8b949e">Total Stars</text>
-            <text x="265" y="26" font-family="Segoe UI, Arial, sans-serif" font-size="14" fill="#58a6ff" text-anchor="end">⭐ ${{ steps.data.outputs.total_stars }}</text>
-          </svg>
-          SVGEOF
-
-      - name: Generate languages SVG
+      - name: Generate unified SVG
         run: |
           python3 << 'PYEOF'
           import json, os
+          from datetime import datetime
 
+          # --- Data ---
+          total_stars = int(os.environ["TOTAL_STARS"])
+          total_forks = int(os.environ["TOTAL_FORKS"])
+          public_repos = int(os.environ["PUBLIC_REPOS"])
+          followers = int(os.environ["FOLLOWERS"])
+          created_at = os.environ["CREATED_AT"]
+          total_code = int(os.environ["TOTAL_CODE_LINES"])
+          total_comments = int(os.environ["TOTAL_COMMENT_LINES"])
           lang_data = json.loads(os.environ["LANG_DATA"])
-          total_lines = sum(v for _, v in lang_data)
+          top_repos = json.loads(os.environ["TOP_REPOS"])
 
+          created = datetime.strptime(created_at, "%Y-%m-%d")
+          years = (datetime.now() - created).days // 365
+
+          def fmt(n):
+              if n >= 1000000: return f"{n/1000000:.1f}M"
+              if n >= 1000: return f"{n/1000:.1f}K"
+              return str(n)
+
+          # --- Layout ---
+          col_w = 280
+          gap = 16
+          padding = 12
+          header_h = 32
+          col_inner = col_w - 2 * padding
+
+          # Column 1: Profile Stats
+          profile_items = [
+              ("⭐ Stars", fmt(total_stars)),
+              ("🍴 Forks", fmt(total_forks)),
+              ("📦 Repos", str(public_repos)),
+              ("👥 Followers", str(followers)),
+              ("💻 Code Lines", fmt(total_code)),
+              ("💬 Comments", fmt(total_comments)),
+              ("🎂 GitHub Age", f"{years} yrs"),
+          ]
+          profile_row_h = 24
+
+          # Column 2: Top Repos
+          medal_colors = ["#FFD700", "#C0C0C0", "#CD7F32", "#8b949e", "#8b949e"]
+          medals = ["🥇", "🥈", "🥉", "4.", "5."]
+          trophy_row_h = 26
+
+          # Column 3: Languages
           LANG_COLORS = {
               "Go": "#00ADD8", "Java": "#b07219", "C++": "#f34b7d",
               "Shell": "#89e051", "C": "#555555", "Python": "#3572A5",
@@ -154,141 +184,99 @@ jobs:
               "Objective-C": "#438eff", "Objective-C++": "#6866fb",
               "m4": "#8b949e",
           }
+          top_langs = lang_data[:6]
+          total_lang_lines = sum(v for _, v in lang_data)
+          lang_row_h = 34
 
-          top = lang_data[:6]
+          # Calculate each column's content height
+          profile_h = len(profile_items) * profile_row_h
+          trophy_h = len(top_repos) * trophy_row_h
+          lang_h = len(top_langs) * lang_row_h
+
+          # All columns share the same height (tallest content + header + padding)
+          max_content = max(profile_h, trophy_h, lang_h)
+          col_h = header_h + max_content + padding
+
+          svg_w = col_w * 3 + gap * 2
+          svg_h = col_h + padding * 2
+          r = 8  # border radius
+
+          # --- Build SVG ---
+          s = []
+          s.append(f'<svg xmlns="http://www.w3.org/2000/svg" width="{svg_w}" height="{svg_h}">')
+          s.append(f'  <defs>')
+          s.append(f'    <style>')
+          s.append(f'      .header {{ font: bold 14px "Segoe UI", Arial, sans-serif; fill: #c9d1d9; }}')
+          s.append(f'      .label {{ font: 13px "Segoe UI", Arial, sans-serif; fill: #8b949e; }}')
+          s.append(f'      .value {{ font: 13px "Segoe UI", Arial, sans-serif; fill: #58a6ff; }}')
+          s.append(f'      .lang-name {{ font: 12px "Segoe UI", Arial, sans-serif; fill: #c9d1d9; }}')
+          s.append(f'      .lang-pct {{ font: 12px "Segoe UI", Arial, sans-serif; fill: #8b949e; }}')
+          s.append(f'      .medal-value {{ font: 13px "Segoe UI", Arial, sans-serif; fill: #8b949e; }}')
+          s.append(f'    </style>')
+          s.append(f'  </defs>')
+
+          # Background
+          s.append(f'  <rect width="{svg_w}" height="{svg_h}" rx="{r}" fill="#0d1117"/>')
+
+          # --- Column 1: Profile Stats ---
+          x1 = 0
+          s.append(f'  <rect x="{x1}" y="0" width="{col_w}" height="{svg_h}" rx="{r}" fill="#161b22"/>')
+          s.append(f'  <text x="{x1 + padding}" y="{padding + 18}" class="header">📊 Profile Stats</text>')
+          y = padding + header_h
+          for label, value in profile_items:
+              s.append(f'  <text x="{x1 + padding}" y="{y + 14}" class="label">{label}</text>')
+              s.append(f'  <text x="{x1 + col_w - padding}" y="{y + 14}" class="value" text-anchor="end">{value}</text>')
+              y += profile_row_h
+
+          # --- Column 2: Top Repos ---
+          x2 = col_w + gap
+          s.append(f'  <rect x="{x2}" y="0" width="{col_w}" height="{svg_h}" rx="{r}" fill="#161b22"/>')
+          s.append(f'  <text x="{x2 + padding}" y="{padding + 18}" class="header">🏆 Top Repos</text>')
+          y = padding + header_h
+          for i, repo in enumerate(top_repos):
+              color = medal_colors[i]
+              medal = medals[i]
+              s.append(f'  <text x="{x2 + padding}" y="{y + 14}" font-family="Segoe UI, Arial, sans-serif" font-size="13" fill="{color}">{medal} {repo["name"]}</text>')
+              s.append(f'  <text x="{x2 + col_w - padding}" y="{y + 14}" class="medal-value" text-anchor="end">⭐ {repo["stars"]}</text>')
+              y += trophy_row_h
+
+          # --- Column 3: Top Languages ---
+          x3 = (col_w + gap) * 2
+          s.append(f'  <rect x="{x3}" y="0" width="{col_w}" height="{svg_h}" rx="{r}" fill="#161b22"/>')
+          s.append(f'  <text x="{x3 + padding}" y="{padding + 18}" class="header">💻 Top Languages</text>')
           bar_h = 10
-          row_h = 34
-          svg_h = 40 + len(top) * row_h + 10
-          bar_w = 250
-
-          lines = []
-          lines.append(f'<svg xmlns="http://www.w3.org/2000/svg" width="280" height="{svg_h}">')
-          lines.append(f'  <rect width="280" height="{svg_h}" rx="6" fill="#1b1f23"/>')
-          lines.append(f'  <text x="15" y="28" font-family="Segoe UI, Arial, sans-serif" font-size="14" font-weight="bold" fill="#c9d1d9">Top Languages</text>')
-
-          y = 48
-          for lang, code_lines in top:
-              pct = code_lines / total_lines * 100 if total_lines else 0
+          bar_w = col_inner
+          y = padding + header_h
+          for lang, code_lines in top_langs:
+              pct = code_lines / total_lang_lines * 100 if total_lang_lines else 0
               color = LANG_COLORS.get(lang, "#8b949e")
               filled = int(bar_w * pct / 100)
-              lines.append(f'  <text x="15" y="{y}" font-family="Segoe UI, Arial, sans-serif" font-size="12" fill="#c9d1d9">{lang}</text>')
-              lines.append(f'  <text x="265" y="{y}" font-family="Segoe UI, Arial, sans-serif" font-size="12" fill="#8b949e" text-anchor="end">{pct:.1f}%</text>')
-              lines.append(f'  <rect x="15" y="{y + 5}" width="{bar_w}" height="{bar_h}" rx="3" fill="#30363d"/>')
-              lines.append(f'  <rect x="15" y="{y + 5}" width="{filled}" height="{bar_h}" rx="3" fill="{color}"/>')
-              y += row_h
+              s.append(f'  <text x="{x3 + padding}" y="{y + 13}" class="lang-name">{lang}</text>')
+              s.append(f'  <text x="{x3 + col_w - padding}" y="{y + 13}" class="lang-pct" text-anchor="end">{pct:.1f}%</text>')
+              s.append(f'  <rect x="{x3 + padding}" y="{y + 18}" width="{bar_w}" height="{bar_h}" rx="3" fill="#30363d"/>')
+              s.append(f'  <rect x="{x3 + padding}" y="{y + 18}" width="{filled}" height="{bar_h}" rx="3" fill="{color}"/>')
+              y += lang_row_h
 
-          lines.append('</svg>')
+          s.append('</svg>')
 
-          with open("languages.svg", "w") as f:
-              f.write("\n".join(lines))
-          PYEOF
-        env:
-          LANG_DATA: ${{ steps.data.outputs.lang_data }}
-
-      - name: Generate profile SVG
-        run: |
-          python3 << 'PYEOF'
-          import os
-
-          total_stars = os.environ["TOTAL_STARS"]
-          total_forks = os.environ["TOTAL_FORKS"]
-          public_repos = os.environ["PUBLIC_REPOS"]
-          followers = os.environ["FOLLOWERS"]
-          following = os.environ["FOLLOWING"]
-          created_at = os.environ["CREATED_AT"]
-          total_code = os.environ["TOTAL_CODE_LINES"]
-          total_comments = os.environ["TOTAL_COMMENT_LINES"]
-
-          from datetime import datetime
-          created = datetime.strptime(created_at, "%Y-%m-%d")
-          now = datetime.now()
-          years = (now - created).days // 365
-
-          def fmt(n):
-              n = int(n)
-              if n >= 1000000: return f"{n/1000000:.1f}M"
-              if n >= 1000: return f"{n/1000:.1f}K"
-              return str(n)
-
-          items = [
-              ("⭐ Stars", fmt(total_stars)),
-              ("🍴 Forks", fmt(total_forks)),
-              ("📦 Repos", public_repos),
-              ("👥 Followers", followers),
-              ("💻 Code Lines", fmt(total_code)),
-              ("💬 Comments", fmt(total_comments)),
-              ("🎂 GitHub Age", f"{years} yrs"),
-          ]
-
-          row_h = 26
-          svg_h = 40 + len(items) * row_h + 10
-          svg_w = 280
-
-          lines = []
-          lines.append(f'<svg xmlns="http://www.w3.org/2000/svg" width="{svg_w}" height="{svg_h}">')
-          lines.append(f'  <rect width="{svg_w}" height="{svg_h}" rx="6" fill="#1b1f23"/>')
-          lines.append(f'  <text x="15" y="28" font-family="Segoe UI, Arial, sans-serif" font-size="14" font-weight="bold" fill="#c9d1d9">Profile Stats</text>')
-
-          y = 50
-          for label, value in items:
-              lines.append(f'  <text x="15" y="{y}" font-family="Segoe UI, Arial, sans-serif" font-size="13" fill="#8b949e">{label}</text>')
-              lines.append(f'  <text x="265" y="{y}" font-family="Segoe UI, Arial, sans-serif" font-size="13" fill="#58a6ff" text-anchor="end">{value}</text>')
-              y += row_h
-
-          lines.append('</svg>')
-
-          with open("profile.svg", "w") as f:
-              f.write("\n".join(lines))
+          with open("stats.svg", "w") as f:
+              f.write("\n".join(s))
           PYEOF
         env:
           TOTAL_STARS: ${{ steps.data.outputs.total_stars }}
           TOTAL_FORKS: ${{ steps.data.outputs.total_forks }}
           PUBLIC_REPOS: ${{ steps.data.outputs.public_repos }}
           FOLLOWERS: ${{ steps.data.outputs.followers }}
-          FOLLOWING: ${{ steps.data.outputs.following }}
           CREATED_AT: ${{ steps.data.outputs.created_at }}
           TOTAL_CODE_LINES: ${{ steps.data.outputs.total_code_lines }}
           TOTAL_COMMENT_LINES: ${{ steps.data.outputs.total_comment_lines }}
-
-      - name: Generate trophy SVG
-        run: |
-          python3 << 'PYEOF'
-          import json, os
-
-          top_repos = json.loads(os.environ["TOP_REPOS"])
-
-          row_h = 30
-          svg_h = 40 + len(top_repos) * row_h + 10
-          svg_w = 280
-
-          medal_colors = ["#FFD700", "#C0C0C0", "#CD7F32", "#8b949e", "#8b949e"]
-          medals = ["🥇", "🥈", "🥉", "4.", "5."]
-
-          lines = []
-          lines.append(f'<svg xmlns="http://www.w3.org/2000/svg" width="{svg_w}" height="{svg_h}">')
-          lines.append(f'  <rect width="{svg_w}" height="{svg_h}" rx="6" fill="#1b1f23"/>')
-          lines.append(f'  <text x="15" y="28" font-family="Segoe UI, Arial, sans-serif" font-size="14" font-weight="bold" fill="#c9d1d9">🏆 Top Repos</text>')
-
-          y = 52
-          for i, repo in enumerate(top_repos):
-              medal = medals[i]
-              color = medal_colors[i]
-              lines.append(f'  <text x="15" y="{y}" font-family="Segoe UI, Arial, sans-serif" font-size="13" fill="{color}">{medal} {repo["name"]}</text>')
-              lines.append(f'  <text x="265" y="{y}" font-family="Segoe UI, Arial, sans-serif" font-size="13" fill="#8b949e" text-anchor="end">⭐ {repo["stars"]}</text>')
-              y += row_h
-
-          lines.append('</svg>')
-
-          with open("trophy.svg", "w") as f:
-              f.write("\n".join(lines))
-          PYEOF
-        env:
+          LANG_DATA: ${{ steps.data.outputs.lang_data }}
           TOP_REPOS: ${{ steps.data.outputs.top_repos }}
 
       - name: Commit and push
         run: |
           git config user.name "github-actions[bot]"
           git config user.email "github-actions[bot]@users.noreply.github.com"
-          git add stats.svg languages.svg profile.svg trophy.svg
+          git add stats.svg profile.svg languages.svg trophy.svg
           git diff --cached --quiet || git commit -m "Update stats SVG [skip ci]"
           git push
