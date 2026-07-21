@@ -20,14 +20,21 @@ jobs:
           python3 << 'PYEOF'
           import json, urllib.request, os
 
+          token = os.environ["GITHUB_TOKEN"]
           owner = os.environ["OWNER"]
+
+          def api_get(url):
+              req = urllib.request.Request(url, headers={
+                  "User-Agent": "Mozilla/5.0",
+                  "Authorization": f"token {token}",
+              })
+              with urllib.request.urlopen(req) as resp:
+                  return json.loads(resp.read())
+
           repos = []
           page = 1
           while True:
-              url = f"https://api.github.com/users/{owner}/repos?per_page=100&page={page}&type=owner"
-              req = urllib.request.Request(url, headers={"User-Agent": "Mozilla/5.0"})
-              with urllib.request.urlopen(req) as resp:
-                  data = json.loads(resp.read())
+              data = api_get(f"https://api.github.com/users/{owner}/repos?per_page=100&page={page}&type=owner")
               if not data:
                   break
               repos.extend(data)
@@ -37,8 +44,10 @@ jobs:
 
           lang_bytes = {}
           for r in repos:
-              if r["language"] and r.get("size", 0) > 0:
-                  lang_bytes[r["language"]] = lang_bytes.get(r["language"], 0) + r["size"]
+              langs_url = r["languages_url"]
+              langs = api_get(langs_url)
+              for lang, size in langs.items():
+                  lang_bytes[lang] = lang_bytes.get(lang, 0) + size
 
           sorted_langs = sorted(lang_bytes.items(), key=lambda x: -x[1])
           total_bytes = sum(v for _, v in sorted_langs)
@@ -50,6 +59,7 @@ jobs:
           PYEOF
         env:
           OWNER: ${{ github.repository_owner }}
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
       - name: Generate stats SVG
         run: |
@@ -78,28 +88,31 @@ jobs:
               "Perl": "#0298c3", "CSS": "#563d7c", "HTML": "#e34c26",
               "Lua": "#000080", "R": "#198CE7", "Dockerfile": "#384d54",
               "Assembly": "#6E4C13", "Batchfile": "#C1F12E", "Visual Basic": "#945db7",
+              "CMake": "#DA3434", "Makefile": "#427819", "Vim Script": "#199F4B",
+              "LLVM": "#185619", "HCL": "#844FBA", "Nix": "#7E7EFF",
+              "QMake": "#A6BCE0", "M4": "#6A6D4F", "Smali": "#2C3E50",
           }
 
           top = lang_data[:6]
-          bar_h = 14
-          row_h = 22
-          svg_h = 30 + len(top) * row_h + 20
-          bar_w = 170
+          bar_h = 10
+          row_h = 34
+          svg_h = 40 + len(top) * row_h + 10
+          bar_w = 250
 
           lines = []
           lines.append(f'<svg xmlns="http://www.w3.org/2000/svg" width="280" height="{svg_h}">')
           lines.append(f'  <rect width="280" height="{svg_h}" rx="6" fill="#1b1f23"/>')
-          lines.append(f'  <text x="15" y="26" font-family="Segoe UI, Arial, sans-serif" font-size="14" font-weight="bold" fill="#c9d1d9">Top Languages</text>')
+          lines.append(f'  <text x="15" y="28" font-family="Segoe UI, Arial, sans-serif" font-size="14" font-weight="bold" fill="#c9d1d9">Top Languages</text>')
 
-          y = 44
+          y = 48
           for lang, size in top:
               pct = size / total_bytes * 100 if total_bytes else 0
               color = LANG_COLORS.get(lang, "#8b949e")
               filled = int(bar_w * pct / 100)
               lines.append(f'  <text x="15" y="{y}" font-family="Segoe UI, Arial, sans-serif" font-size="12" fill="#c9d1d9">{lang}</text>')
               lines.append(f'  <text x="265" y="{y}" font-family="Segoe UI, Arial, sans-serif" font-size="12" fill="#8b949e" text-anchor="end">{pct:.1f}%</text>')
-              lines.append(f'  <rect x="15" y="{y + 3}" width="{bar_w}" height="{bar_h}" rx="3" fill="#30363d"/>')
-              lines.append(f'  <rect x="15" y="{y + 3}" width="{filled}" height="{bar_h}" rx="3" fill="{color}"/>')
+              lines.append(f'  <rect x="15" y="{y + 5}" width="{bar_w}" height="{bar_h}" rx="3" fill="#30363d"/>')
+              lines.append(f'  <rect x="15" y="{y + 5}" width="{filled}" height="{bar_h}" rx="3" fill="{color}"/>')
               y += row_h
 
           lines.append('</svg>')
