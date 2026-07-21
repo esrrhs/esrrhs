@@ -1,5 +1,5 @@
 ### Hi there 👋
 
-![Total Stars](https://raw.githubusercontent.com/esrrhs/esrrhs/master/stats.svg)
+<img src="https://raw.githubusercontent.com/esrrhs/esrrhs/master/profile.svg" width="280" /> <img src="https://raw.githubusercontent.com/esrrhs/esrrhs/master/trophy.svg" width="280" />
 
-![Top Languages](https://raw.githubusercontent.com/esrrhs/esrrhs/master/languages.svg)
+<img src="https://raw.githubusercontent.com/esrrhs/esrrhs/master/languages.svg" width="280" />
