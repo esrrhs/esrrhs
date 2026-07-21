@@ -14,8 +14,11 @@ jobs:
     steps:
       - uses: actions/checkout@v4
 
-      - name: Fetch repo data
-        id: repos
+      - name: Install cloc
+        run: sudo apt-get update && sudo apt-get install -y cloc
+
+      - name: Fetch total stars
+        id: stars
         run: |
           python3 << 'PYEOF'
           import json, urllib.request, os
@@ -42,20 +45,72 @@ jobs:
 
           total_stars = sum(r["stargazers_count"] for r in repos)
 
-          lang_bytes = {}
-          for r in repos:
-              langs_url = r["languages_url"]
-              langs = api_get(langs_url)
-              for lang, size in langs.items():
-                  lang_bytes[lang] = lang_bytes.get(lang, 0) + size
-
-          sorted_langs = sorted(lang_bytes.items(), key=lambda x: -x[1])
-          total_bytes = sum(v for _, v in sorted_langs)
-
           with open(os.environ["GITHUB_OUTPUT"], "a") as f:
               f.write(f"total_stars={total_stars}\n")
+          PYEOF
+        env:
+          OWNER: ${{ github.repository_owner }}
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+
+      - name: Clone repos and count lines
+        id: langs
+        run: |
+          python3 << 'PYEOF'
+          import json, urllib.request, subprocess, os
+
+          token = os.environ["GITHUB_TOKEN"]
+          owner = os.environ["OWNER"]
+
+          def api_get(url):
+              req = urllib.request.Request(url, headers={
+                  "User-Agent": "Mozilla/5.0",
+                  "Authorization": f"token {token}",
+              })
+              with urllib.request.urlopen(req) as resp:
+                  return json.loads(resp.read())
+
+          repos = []
+          page = 1
+          while True:
+              data = api_get(f"https://api.github.com/users/{owner}/repos?per_page=100&page={page}&type=owner")
+              if not data:
+                  break
+              repos.extend(data)
+              page += 1
+
+          clone_dir = os.path.join(os.environ["RUNNER_TEMP"], "repos")
+          os.makedirs(clone_dir, exist_ok=True)
+
+          lang_lines = {}
+          for r in repos:
+              clone_url = r["clone_url"]
+              repo_dir = os.path.join(clone_dir, r["name"])
+              auth_url = clone_url.replace("https://", f"https://{token}@")
+              subprocess.run(["git", "clone", "--depth=1", auth_url, repo_dir],
+                             stdout=subprocess.DEVNULL, stderr=subprocess.DEVNULL)
+
+              result = subprocess.run(
+                  ["cloc", repo_dir, "--json", "--quiet", "--not-match-d=vendor,node_modules,.git"],
+                  capture_output=True, text=True
+              )
+              try:
+                  cloc_data = json.loads(result.stdout)
+              except json.JSONDecodeError:
+                  continue
+
+              for lang, info in cloc_data.items():
+                  if lang in ("header", "SUM"):
+                      continue
+                  code = info.get("code", 0)
+                  if code > 0:
+                      lang_lines[lang] = lang_lines.get(lang, 0) + code
+
+          sorted_langs = sorted(lang_lines.items(), key=lambda x: -x[1])
+          total_lines = sum(v for _, v in sorted_langs)
+
+          with open(os.environ["GITHUB_OUTPUT"], "a") as f:
               f.write(f"lang_data={json.dumps(sorted_langs)}\n")
-              f.write(f"total_bytes={total_bytes}\n")
+              f.write(f"total_lines={total_lines}\n")
           PYEOF
         env:
           OWNER: ${{ github.repository_owner }}
@@ -67,7 +122,7 @@ jobs:
           <svg xmlns="http://www.w3.org/2000/svg" width="280" height="40">
             <rect width="280" height="40" rx="6" fill="#1b1f23"/>
             <text x="15" y="26" font-family="Segoe UI, Arial, sans-serif" font-size="14" fill="#8b949e">Total Stars</text>
-            <text x="265" y="26" font-family="Segoe UI, Arial, sans-serif" font-size="14" fill="#58a6ff" text-anchor="end">⭐ ${{ steps.repos.outputs.total_stars }}</text>
+            <text x="265" y="26" font-family="Segoe UI, Arial, sans-serif" font-size="14" fill="#58a6ff" text-anchor="end">⭐ ${{ steps.stars.outputs.total_stars }}</text>
           </svg>
           SVGEOF
 
@@ -77,7 +132,7 @@ jobs:
           import json, os
 
           lang_data = json.loads(os.environ["LANG_DATA"])
-          total_bytes = int(os.environ["TOTAL_BYTES"])
+          total_lines = int(os.environ["TOTAL_LINES"])
 
           LANG_COLORS = {
               "Go": "#00ADD8", "Java": "#b07219", "C++": "#f34b7d",
@@ -91,6 +146,8 @@ jobs:
               "CMake": "#DA3434", "Makefile": "#427819", "Vim Script": "#199F4B",
               "LLVM": "#185619", "HCL": "#844FBA", "Nix": "#7E7EFF",
               "QMake": "#A6BCE0", "M4": "#6A6D4F", "Smali": "#2C3E50",
+              "Objective-C": "#438eff", "Objective-C++": "#6866fb",
+              "C/C++ Header": "#f34b7d", "Markdown": "#083fa1", "YAML": "#cb171e",
           }
 
           top = lang_data[:6]
@@ -99,14 +156,21 @@ jobs:
           svg_h = 40 + len(top) * row_h + 10
           bar_w = 250
 
+          def format_lines(n):
+              if n >= 1000000:
+                  return f"{n/1000000:.1f}M"
+              elif n >= 1000:
+                  return f"{n/1000:.1f}K"
+              return str(n)
+
           lines = []
           lines.append(f'<svg xmlns="http://www.w3.org/2000/svg" width="280" height="{svg_h}">')
           lines.append(f'  <rect width="280" height="{svg_h}" rx="6" fill="#1b1f23"/>')
           lines.append(f'  <text x="15" y="28" font-family="Segoe UI, Arial, sans-serif" font-size="14" font-weight="bold" fill="#c9d1d9">Top Languages</text>')
 
           y = 48
-          for lang, size in top:
-              pct = size / total_bytes * 100 if total_bytes else 0
+          for lang, code_lines in top:
+              pct = code_lines / total_lines * 100 if total_lines else 0
               color = LANG_COLORS.get(lang, "#8b949e")
               filled = int(bar_w * pct / 100)
               lines.append(f'  <text x="15" y="{y}" font-family="Segoe UI, Arial, sans-serif" font-size="12" fill="#c9d1d9">{lang}</text>')
@@ -121,8 +185,8 @@ jobs:
               f.write("\n".join(lines))
           PYEOF
         env:
-          LANG_DATA: ${{ steps.repos.outputs.lang_data }}
-          TOTAL_BYTES: ${{ steps.repos.outputs.total_bytes }}
+          LANG_DATA: ${{ steps.langs.outputs.lang_data }}
+          TOTAL_LINES: ${{ steps.langs.outputs.total_lines }}
 
       - name: Commit and push
         run: |
