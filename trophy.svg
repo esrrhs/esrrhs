@@ -1,0 +1,14 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="280" height="200">
+  <rect width="280" height="200" rx="6" fill="#1b1f23"/>
+  <text x="15" y="28" font-family="Segoe UI, Arial, sans-serif" font-size="14" font-weight="bold" fill="#c9d1d9">🏆 Top Repos</text>
+  <text x="15" y="52" font-family="Segoe UI, Arial, sans-serif" font-size="13" fill="#FFD700">🥇 pingtunnel</text>
+  <text x="265" y="52" font-family="Segoe UI, Arial, sans-serif" font-size="13" fill="#8b949e" text-anchor="end">⭐ 3699</text>
+  <text x="15" y="82" font-family="Segoe UI, Arial, sans-serif" font-size="13" fill="#C0C0C0">🥈 spp</text>
+  <text x="265" y="82" font-family="Segoe UI, Arial, sans-serif" font-size="13" fill="#8b949e" text-anchor="end">⭐ 912</text>
+  <text x="15" y="112" font-family="Segoe UI, Arial, sans-serif" font-size="13" fill="#CD7F32">🥉 atmosphere-switch</text>
+  <text x="265" y="112" font-family="Segoe UI, Arial, sans-serif" font-size="13" fill="#8b949e" text-anchor="end">⭐ 507</text>
+  <text x="15" y="142" font-family="Segoe UI, Arial, sans-serif" font-size="13" fill="#8b949e">4. majiang_algorithm</text>
+  <text x="265" y="142" font-family="Segoe UI, Arial, sans-serif" font-size="13" fill="#8b949e" text-anchor="end">⭐ 479</text>
+  <text x="15" y="172" font-family="Segoe UI, Arial, sans-serif" font-size="13" fill="#8b949e">5. xiaohuangji</text>
+  <text x="265" y="172" font-family="Segoe UI, Arial, sans-serif" font-size="13" fill="#8b949e" text-anchor="end">⭐ 445</text>
+</svg>
