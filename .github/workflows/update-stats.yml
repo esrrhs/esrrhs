@@ -81,6 +81,17 @@ jobs:
           clone_dir = os.path.join(os.environ["RUNNER_TEMP"], "repos")
           os.makedirs(clone_dir, exist_ok=True)
 
+          SKIP_LANGS = {"Text", "C/C++ Header", "Markdown", "JSON", "YAML", "TOML",
+                         "XML", "HTML", "CSS", "INI", "SQL", "SVG", "Dockerfile",
+                         "make", "Makefile", "CMake", "QMake", "M4", "Gradle",
+                         "Maven"}
+
+          LANG_ALIASES = {
+              "Bourne Again Shell": "Shell",
+              "Bourne Shell": "Shell",
+              "POSIX Shell": "Shell",
+          }
+
           lang_lines = {}
           for r in repos:
               clone_url = r["clone_url"]
@@ -99,10 +110,11 @@ jobs:
                   continue
 
               for lang, info in cloc_data.items():
-                  if lang in ("header", "SUM"):
+                  if lang in ("header", "SUM") or lang in SKIP_LANGS:
                       continue
                   code = info.get("code", 0)
                   if code > 0:
+                      lang = LANG_ALIASES.get(lang, lang)
                       lang_lines[lang] = lang_lines.get(lang, 0) + code
 
           sorted_langs = sorted(lang_lines.items(), key=lambda x: -x[1])
