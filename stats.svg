@@ -23,7 +23,7 @@
   <text x="12" y="154" class="label">💻 Code Lines</text>
   <text x="268" y="154" class="value" text-anchor="end">6.6M</text>
   <text x="12" y="178" class="label">💬 Comments</text>
-  <text x="268" y="178" class="value" text-anchor="end">751.6K</text>
+  <text x="268" y="178" class="value" text-anchor="end">751.7K</text>
   <text x="12" y="202" class="label">🎂 GitHub Age</text>
   <text x="268" y="202" class="value" text-anchor="end">13 yrs</text>
   <rect x="296" y="0" width="280" height="272" rx="8" fill="#161b22"/>
@@ -41,7 +41,7 @@
   <rect x="592" y="0" width="280" height="272" rx="8" fill="#161b22"/>
   <text x="604" y="30" class="header">💻 Top Languages</text>
   <text x="604" y="57" class="lang-name">C++</text>
-  <text x="860" y="57" class="lang-pct" text-anchor="end">51.2%</text>
+  <text x="860" y="57" class="lang-pct" text-anchor="end">51.3%</text>
   <rect x="604" y="62" width="256" height="10" rx="3" fill="#30363d"/>
   <rect x="604" y="62" width="131" height="10" rx="3" fill="#f34b7d"/>
   <text x="604" y="91" class="lang-name">C</text>
