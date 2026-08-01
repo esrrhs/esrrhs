@@ -57,7 +57,7 @@
   <rect x="604" y="164" width="256" height="10" rx="3" fill="#30363d"/>
   <rect x="604" y="164" width="14" height="10" rx="3" fill="#f1e05a"/>
   <text x="604" y="193" class="lang-name">Shell</text>
-  <text x="860" y="193" class="lang-pct" text-anchor="end">3.8%</text>
+  <text x="860" y="193" class="lang-pct" text-anchor="end">3.7%</text>
   <rect x="604" y="198" width="256" height="10" rx="3" fill="#30363d"/>
   <rect x="604" y="198" width="9" height="10" rx="3" fill="#89e051"/>
   <text x="604" y="227" class="lang-name">m4</text>
