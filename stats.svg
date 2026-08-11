@@ -23,7 +23,7 @@
   <text x="12" y="154" class="label">💻 Code Lines</text>
   <text x="268" y="154" class="value" text-anchor="end">6.7M</text>
   <text x="12" y="178" class="label">💬 Comments</text>
-  <text x="268" y="178" class="value" text-anchor="end">755.1K</text>
+  <text x="268" y="178" class="value" text-anchor="end">755.2K</text>
   <text x="12" y="202" class="label">🎂 GitHub Age</text>
   <text x="268" y="202" class="value" text-anchor="end">13 yrs</text>
   <rect x="296" y="0" width="280" height="272" rx="8" fill="#161b22"/>
@@ -31,7 +31,7 @@
   <text x="308" y="58" font-family="Segoe UI, Arial, sans-serif" font-size="13" fill="#FFD700">🥇 pingtunnel</text>
   <text x="564" y="58" class="medal-value" text-anchor="end">⭐ 3705</text>
   <text x="308" y="84" font-family="Segoe UI, Arial, sans-serif" font-size="13" fill="#C0C0C0">🥈 spp</text>
-  <text x="564" y="84" class="medal-value" text-anchor="end">⭐ 914</text>
+  <text x="564" y="84" class="medal-value" text-anchor="end">⭐ 915</text>
   <text x="308" y="110" font-family="Segoe UI, Arial, sans-serif" font-size="13" fill="#CD7F32">🥉 atmosphere-switch</text>
   <text x="564" y="110" class="medal-value" text-anchor="end">⭐ 506</text>
   <text x="308" y="136" font-family="Segoe UI, Arial, sans-serif" font-size="13" fill="#8b949e">4. majiang_algorithm</text>
@@ -41,7 +41,7 @@
   <rect x="592" y="0" width="280" height="272" rx="8" fill="#161b22"/>
   <text x="604" y="30" class="header">💻 Top Languages</text>
   <text x="604" y="57" class="lang-name">C++</text>
-  <text x="860" y="57" class="lang-pct" text-anchor="end">51.1%</text>
+  <text x="860" y="57" class="lang-pct" text-anchor="end">51.0%</text>
   <rect x="604" y="62" width="256" height="10" rx="3" fill="#30363d"/>
   <rect x="604" y="62" width="130" height="10" rx="3" fill="#f34b7d"/>
   <text x="604" y="91" class="lang-name">C</text>
