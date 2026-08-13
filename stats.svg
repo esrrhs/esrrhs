@@ -23,7 +23,7 @@
   <text x="12" y="154" class="label">💻 Code Lines</text>
   <text x="268" y="154" class="value" text-anchor="end">6.7M</text>
   <text x="12" y="178" class="label">💬 Comments</text>
-  <text x="268" y="178" class="value" text-anchor="end">756.7K</text>
+  <text x="268" y="178" class="value" text-anchor="end">757.0K</text>
   <text x="12" y="202" class="label">🎂 GitHub Age</text>
   <text x="268" y="202" class="value" text-anchor="end">13 yrs</text>
   <rect x="296" y="0" width="280" height="272" rx="8" fill="#161b22"/>
@@ -37,17 +37,17 @@
   <text x="308" y="136" font-family="Segoe UI, Arial, sans-serif" font-size="13" fill="#8b949e">4. majiang_algorithm</text>
   <text x="564" y="136" class="medal-value" text-anchor="end">⭐ 480</text>
   <text x="308" y="162" font-family="Segoe UI, Arial, sans-serif" font-size="13" fill="#8b949e">5. xiaohuangji</text>
-  <text x="564" y="162" class="medal-value" text-anchor="end">⭐ 445</text>
+  <text x="564" y="162" class="medal-value" text-anchor="end">⭐ 444</text>
   <rect x="592" y="0" width="280" height="272" rx="8" fill="#161b22"/>
   <text x="604" y="30" class="header">💻 Top Languages</text>
   <text x="604" y="57" class="lang-name">C++</text>
-  <text x="860" y="57" class="lang-pct" text-anchor="end">50.3%</text>
+  <text x="860" y="57" class="lang-pct" text-anchor="end">50.2%</text>
   <rect x="604" y="62" width="256" height="10" rx="3" fill="#30363d"/>
   <rect x="604" y="62" width="128" height="10" rx="3" fill="#f34b7d"/>
   <text x="604" y="91" class="lang-name">C</text>
-  <text x="860" y="91" class="lang-pct" text-anchor="end">20.7%</text>
+  <text x="860" y="91" class="lang-pct" text-anchor="end">20.9%</text>
   <rect x="604" y="96" width="256" height="10" rx="3" fill="#30363d"/>
-  <rect x="604" y="96" width="52" height="10" rx="3" fill="#555555"/>
+  <rect x="604" y="96" width="53" height="10" rx="3" fill="#555555"/>
   <text x="604" y="125" class="lang-name">Go</text>
   <text x="860" y="125" class="lang-pct" text-anchor="end">11.6%</text>
   <rect x="604" y="130" width="256" height="10" rx="3" fill="#30363d"/>
