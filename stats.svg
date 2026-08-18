@@ -21,9 +21,9 @@
   <text x="12" y="130" class="label">👥 Followers</text>
   <text x="268" y="130" class="value" text-anchor="end">675</text>
   <text x="12" y="154" class="label">💻 Code Lines</text>
-  <text x="268" y="154" class="value" text-anchor="end">6.7M</text>
+  <text x="268" y="154" class="value" text-anchor="end">6.8M</text>
   <text x="12" y="178" class="label">💬 Comments</text>
-  <text x="268" y="178" class="value" text-anchor="end">759.2K</text>
+  <text x="268" y="178" class="value" text-anchor="end">759.5K</text>
   <text x="12" y="202" class="label">🎂 GitHub Age</text>
   <text x="268" y="202" class="value" text-anchor="end">13 yrs</text>
   <rect x="296" y="0" width="280" height="272" rx="8" fill="#161b22"/>
@@ -41,27 +41,27 @@
   <rect x="592" y="0" width="280" height="272" rx="8" fill="#161b22"/>
   <text x="604" y="30" class="header">💻 Top Languages</text>
   <text x="604" y="57" class="lang-name">C++</text>
-  <text x="860" y="57" class="lang-pct" text-anchor="end">49.9%</text>
+  <text x="860" y="57" class="lang-pct" text-anchor="end">48.7%</text>
   <rect x="604" y="62" width="256" height="10" rx="3" fill="#30363d"/>
-  <rect x="604" y="62" width="127" height="10" rx="3" fill="#f34b7d"/>
+  <rect x="604" y="62" width="124" height="10" rx="3" fill="#f34b7d"/>
   <text x="604" y="91" class="lang-name">C</text>
-  <text x="860" y="91" class="lang-pct" text-anchor="end">21.3%</text>
+  <text x="860" y="91" class="lang-pct" text-anchor="end">23.3%</text>
   <rect x="604" y="96" width="256" height="10" rx="3" fill="#30363d"/>
-  <rect x="604" y="96" width="54" height="10" rx="3" fill="#555555"/>
+  <rect x="604" y="96" width="59" height="10" rx="3" fill="#555555"/>
   <text x="604" y="125" class="lang-name">Go</text>
-  <text x="860" y="125" class="lang-pct" text-anchor="end">11.5%</text>
+  <text x="860" y="125" class="lang-pct" text-anchor="end">11.2%</text>
   <rect x="604" y="130" width="256" height="10" rx="3" fill="#30363d"/>
-  <rect x="604" y="130" width="29" height="10" rx="3" fill="#00ADD8"/>
+  <rect x="604" y="130" width="28" height="10" rx="3" fill="#00ADD8"/>
   <text x="604" y="159" class="lang-name">JavaScript</text>
-  <text x="860" y="159" class="lang-pct" text-anchor="end">5.3%</text>
+  <text x="860" y="159" class="lang-pct" text-anchor="end">5.2%</text>
   <rect x="604" y="164" width="256" height="10" rx="3" fill="#30363d"/>
   <rect x="604" y="164" width="13" height="10" rx="3" fill="#f1e05a"/>
   <text x="604" y="193" class="lang-name">Shell</text>
-  <text x="860" y="193" class="lang-pct" text-anchor="end">3.7%</text>
+  <text x="860" y="193" class="lang-pct" text-anchor="end">3.6%</text>
   <rect x="604" y="198" width="256" height="10" rx="3" fill="#30363d"/>
   <rect x="604" y="198" width="9" height="10" rx="3" fill="#89e051"/>
   <text x="604" y="227" class="lang-name">m4</text>
-  <text x="860" y="227" class="lang-pct" text-anchor="end">1.7%</text>
+  <text x="860" y="227" class="lang-pct" text-anchor="end">1.6%</text>
   <rect x="604" y="232" width="256" height="10" rx="3" fill="#30363d"/>
   <rect x="604" y="232" width="4" height="10" rx="3" fill="#8b949e"/>
 </svg>
