@@ -19,11 +19,11 @@
   <text x="12" y="106" class="label">📦 Repos</text>
   <text x="268" y="106" class="value" text-anchor="end">75</text>
   <text x="12" y="130" class="label">👥 Followers</text>
-  <text x="268" y="130" class="value" text-anchor="end">675</text>
+  <text x="268" y="130" class="value" text-anchor="end">674</text>
   <text x="12" y="154" class="label">💻 Code Lines</text>
   <text x="268" y="154" class="value" text-anchor="end">6.8M</text>
   <text x="12" y="178" class="label">💬 Comments</text>
-  <text x="268" y="178" class="value" text-anchor="end">760.5K</text>
+  <text x="268" y="178" class="value" text-anchor="end">760.7K</text>
   <text x="12" y="202" class="label">🎂 GitHub Age</text>
   <text x="268" y="202" class="value" text-anchor="end">13 yrs</text>
   <rect x="296" y="0" width="280" height="272" rx="8" fill="#161b22"/>
@@ -41,15 +41,15 @@
   <rect x="592" y="0" width="280" height="272" rx="8" fill="#161b22"/>
   <text x="604" y="30" class="header">💻 Top Languages</text>
   <text x="604" y="57" class="lang-name">C++</text>
-  <text x="860" y="57" class="lang-pct" text-anchor="end">48.3%</text>
+  <text x="860" y="57" class="lang-pct" text-anchor="end">48.0%</text>
   <rect x="604" y="62" width="256" height="10" rx="3" fill="#30363d"/>
-  <rect x="604" y="62" width="123" height="10" rx="3" fill="#f34b7d"/>
+  <rect x="604" y="62" width="122" height="10" rx="3" fill="#f34b7d"/>
   <text x="604" y="91" class="lang-name">C</text>
-  <text x="860" y="91" class="lang-pct" text-anchor="end">23.9%</text>
+  <text x="860" y="91" class="lang-pct" text-anchor="end">24.4%</text>
   <rect x="604" y="96" width="256" height="10" rx="3" fill="#30363d"/>
-  <rect x="604" y="96" width="61" height="10" rx="3" fill="#555555"/>
+  <rect x="604" y="96" width="62" height="10" rx="3" fill="#555555"/>
   <text x="604" y="125" class="lang-name">Go</text>
-  <text x="860" y="125" class="lang-pct" text-anchor="end">11.1%</text>
+  <text x="860" y="125" class="lang-pct" text-anchor="end">11.0%</text>
   <rect x="604" y="130" width="256" height="10" rx="3" fill="#30363d"/>
   <rect x="604" y="130" width="28" height="10" rx="3" fill="#00ADD8"/>
   <text x="604" y="159" class="lang-name">JavaScript</text>
