@@ -21,15 +21,15 @@
   <text x="12" y="130" class="label">👥 Followers</text>
   <text x="268" y="130" class="value" text-anchor="end">673</text>
   <text x="12" y="154" class="label">💻 Code Lines</text>
-  <text x="268" y="154" class="value" text-anchor="end">7.2M</text>
+  <text x="268" y="154" class="value" text-anchor="end">6.9M</text>
   <text x="12" y="178" class="label">💬 Comments</text>
-  <text x="268" y="178" class="value" text-anchor="end">881.0K</text>
+  <text x="268" y="178" class="value" text-anchor="end">768.6K</text>
   <text x="12" y="202" class="label">🎂 GitHub Age</text>
   <text x="268" y="202" class="value" text-anchor="end">13 yrs</text>
   <rect x="296" y="0" width="280" height="272" rx="8" fill="#161b22"/>
   <text x="308" y="30" class="header">🏆 Top Repos</text>
   <text x="308" y="58" font-family="Segoe UI, Arial, sans-serif" font-size="13" fill="#FFD700">🥇 pingtunnel</text>
-  <text x="564" y="58" class="medal-value" text-anchor="end">⭐ 3711</text>
+  <text x="564" y="58" class="medal-value" text-anchor="end">⭐ 3712</text>
   <text x="308" y="84" font-family="Segoe UI, Arial, sans-serif" font-size="13" fill="#C0C0C0">🥈 spp</text>
   <text x="564" y="84" class="medal-value" text-anchor="end">⭐ 917</text>
   <text x="308" y="110" font-family="Segoe UI, Arial, sans-serif" font-size="13" fill="#CD7F32">🥉 atmosphere-switch</text>
@@ -41,27 +41,27 @@
   <rect x="592" y="0" width="280" height="272" rx="8" fill="#161b22"/>
   <text x="604" y="30" class="header">💻 Top Languages</text>
   <text x="604" y="57" class="lang-name">C++</text>
-  <text x="860" y="57" class="lang-pct" text-anchor="end">41.2%</text>
+  <text x="860" y="57" class="lang-pct" text-anchor="end">45.2%</text>
   <rect x="604" y="62" width="256" height="10" rx="3" fill="#30363d"/>
-  <rect x="604" y="62" width="105" height="10" rx="3" fill="#f34b7d"/>
+  <rect x="604" y="62" width="115" height="10" rx="3" fill="#f34b7d"/>
   <text x="604" y="91" class="lang-name">C</text>
-  <text x="860" y="91" class="lang-pct" text-anchor="end">35.2%</text>
+  <text x="860" y="91" class="lang-pct" text-anchor="end">28.8%</text>
   <rect x="604" y="96" width="256" height="10" rx="3" fill="#30363d"/>
-  <rect x="604" y="96" width="90" height="10" rx="3" fill="#555555"/>
+  <rect x="604" y="96" width="73" height="10" rx="3" fill="#555555"/>
   <text x="604" y="125" class="lang-name">Go</text>
-  <text x="860" y="125" class="lang-pct" text-anchor="end">9.4%</text>
+  <text x="860" y="125" class="lang-pct" text-anchor="end">10.3%</text>
   <rect x="604" y="130" width="256" height="10" rx="3" fill="#30363d"/>
-  <rect x="604" y="130" width="24" height="10" rx="3" fill="#00ADD8"/>
+  <rect x="604" y="130" width="26" height="10" rx="3" fill="#00ADD8"/>
   <text x="604" y="159" class="lang-name">JavaScript</text>
-  <text x="860" y="159" class="lang-pct" text-anchor="end">4.3%</text>
+  <text x="860" y="159" class="lang-pct" text-anchor="end">4.8%</text>
   <rect x="604" y="164" width="256" height="10" rx="3" fill="#30363d"/>
-  <rect x="604" y="164" width="11" height="10" rx="3" fill="#f1e05a"/>
+  <rect x="604" y="164" width="12" height="10" rx="3" fill="#f1e05a"/>
   <text x="604" y="193" class="lang-name">Shell</text>
-  <text x="860" y="193" class="lang-pct" text-anchor="end">3.0%</text>
+  <text x="860" y="193" class="lang-pct" text-anchor="end">3.3%</text>
   <rect x="604" y="198" width="256" height="10" rx="3" fill="#30363d"/>
-  <rect x="604" y="198" width="7" height="10" rx="3" fill="#89e051"/>
+  <rect x="604" y="198" width="8" height="10" rx="3" fill="#89e051"/>
   <text x="604" y="227" class="lang-name">m4</text>
-  <text x="860" y="227" class="lang-pct" text-anchor="end">1.4%</text>
+  <text x="860" y="227" class="lang-pct" text-anchor="end">1.5%</text>
   <rect x="604" y="232" width="256" height="10" rx="3" fill="#30363d"/>
   <rect x="604" y="232" width="3" height="10" rx="3" fill="#8b949e"/>
 </svg>
