@@ -23,7 +23,7 @@
   <text x="12" y="154" class="label">💻 Code Lines</text>
   <text x="268" y="154" class="value" text-anchor="end">7.0M</text>
   <text x="12" y="178" class="label">💬 Comments</text>
-  <text x="268" y="178" class="value" text-anchor="end">770.1K</text>
+  <text x="268" y="178" class="value" text-anchor="end">770.4K</text>
   <text x="12" y="202" class="label">🎂 GitHub Age</text>
   <text x="268" y="202" class="value" text-anchor="end">13 yrs</text>
   <rect x="296" y="0" width="280" height="272" rx="8" fill="#161b22"/>
@@ -45,7 +45,7 @@
   <rect x="604" y="62" width="256" height="10" rx="3" fill="#30363d"/>
   <rect x="604" y="62" width="114" height="10" rx="3" fill="#f34b7d"/>
   <text x="604" y="91" class="lang-name">C</text>
-  <text x="860" y="91" class="lang-pct" text-anchor="end">29.8%</text>
+  <text x="860" y="91" class="lang-pct" text-anchor="end">29.7%</text>
   <rect x="604" y="96" width="256" height="10" rx="3" fill="#30363d"/>
   <rect x="604" y="96" width="76" height="10" rx="3" fill="#555555"/>
   <text x="604" y="125" class="lang-name">Go</text>
