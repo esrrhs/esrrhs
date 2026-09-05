@@ -23,7 +23,7 @@
   <text x="12" y="154" class="label">💻 Code Lines</text>
   <text x="268" y="154" class="value" text-anchor="end">7.0M</text>
   <text x="12" y="178" class="label">💬 Comments</text>
-  <text x="268" y="178" class="value" text-anchor="end">768.5K</text>
+  <text x="268" y="178" class="value" text-anchor="end">770.8K</text>
   <text x="12" y="202" class="label">🎂 GitHub Age</text>
   <text x="268" y="202" class="value" text-anchor="end">13 yrs</text>
   <rect x="296" y="0" width="280" height="272" rx="8" fill="#161b22"/>
@@ -47,15 +47,15 @@
   <text x="604" y="91" class="lang-name">C</text>
   <text x="860" y="91" class="lang-pct" text-anchor="end">29.7%</text>
   <rect x="604" y="96" width="256" height="10" rx="3" fill="#30363d"/>
-  <rect x="604" y="96" width="75" height="10" rx="3" fill="#555555"/>
+  <rect x="604" y="96" width="76" height="10" rx="3" fill="#555555"/>
   <text x="604" y="125" class="lang-name">Go</text>
   <text x="860" y="125" class="lang-pct" text-anchor="end">10.1%</text>
   <rect x="604" y="130" width="256" height="10" rx="3" fill="#30363d"/>
   <rect x="604" y="130" width="25" height="10" rx="3" fill="#00ADD8"/>
   <text x="604" y="159" class="lang-name">JavaScript</text>
-  <text x="860" y="159" class="lang-pct" text-anchor="end">4.8%</text>
+  <text x="860" y="159" class="lang-pct" text-anchor="end">4.7%</text>
   <rect x="604" y="164" width="256" height="10" rx="3" fill="#30363d"/>
-  <rect x="604" y="164" width="12" height="10" rx="3" fill="#f1e05a"/>
+  <rect x="604" y="164" width="11" height="10" rx="3" fill="#f1e05a"/>
   <text x="604" y="193" class="lang-name">Shell</text>
   <text x="860" y="193" class="lang-pct" text-anchor="end">3.2%</text>
   <rect x="604" y="198" width="256" height="10" rx="3" fill="#30363d"/>
