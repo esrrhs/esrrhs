@@ -21,7 +21,7 @@
   <text x="12" y="130" class="label">👥 Followers</text>
   <text x="268" y="130" class="value" text-anchor="end">672</text>
   <text x="12" y="154" class="label">💻 Code Lines</text>
-  <text x="268" y="154" class="value" text-anchor="end">5.9M</text>
+  <text x="268" y="154" class="value" text-anchor="end">6.0M</text>
   <text x="12" y="178" class="label">💬 Comments</text>
   <text x="268" y="178" class="value" text-anchor="end">670.5K</text>
   <text x="12" y="202" class="label">🎂 GitHub Age</text>
