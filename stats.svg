@@ -23,17 +23,17 @@
   <text x="12" y="154" class="label">💻 Code Lines</text>
   <text x="268" y="154" class="value" text-anchor="end">6.0M</text>
   <text x="12" y="178" class="label">💬 Comments</text>
-  <text x="268" y="178" class="value" text-anchor="end">660.5K</text>
+  <text x="268" y="178" class="value" text-anchor="end">660.9K</text>
   <text x="12" y="202" class="label">🎂 GitHub Age</text>
   <text x="268" y="202" class="value" text-anchor="end">13 yrs</text>
   <rect x="296" y="0" width="280" height="272" rx="8" fill="#161b22"/>
   <text x="308" y="30" class="header">🏆 Top Repos</text>
   <text x="308" y="58" font-family="Segoe UI, Arial, sans-serif" font-size="13" fill="#FFD700">🥇 pingtunnel</text>
-  <text x="564" y="58" class="medal-value" text-anchor="end">⭐ 3723</text>
+  <text x="564" y="58" class="medal-value" text-anchor="end">⭐ 3722</text>
   <text x="308" y="84" font-family="Segoe UI, Arial, sans-serif" font-size="13" fill="#C0C0C0">🥈 spp</text>
   <text x="564" y="84" class="medal-value" text-anchor="end">⭐ 917</text>
   <text x="308" y="110" font-family="Segoe UI, Arial, sans-serif" font-size="13" fill="#CD7F32">🥉 atmosphere-switch</text>
-  <text x="564" y="110" class="medal-value" text-anchor="end">⭐ 520</text>
+  <text x="564" y="110" class="medal-value" text-anchor="end">⭐ 521</text>
   <text x="308" y="136" font-family="Segoe UI, Arial, sans-serif" font-size="13" fill="#8b949e">4. majiang_algorithm</text>
   <text x="564" y="136" class="medal-value" text-anchor="end">⭐ 481</text>
   <text x="308" y="162" font-family="Segoe UI, Arial, sans-serif" font-size="13" fill="#8b949e">5. xiaohuangji</text>
@@ -45,7 +45,7 @@
   <rect x="604" y="62" width="256" height="10" rx="3" fill="#30363d"/>
   <rect x="604" y="62" width="140" height="10" rx="3" fill="#f34b7d"/>
   <text x="604" y="91" class="lang-name">C</text>
-  <text x="860" y="91" class="lang-pct" text-anchor="end">25.8%</text>
+  <text x="860" y="91" class="lang-pct" text-anchor="end">25.7%</text>
   <rect x="604" y="96" width="256" height="10" rx="3" fill="#30363d"/>
   <rect x="604" y="96" width="65" height="10" rx="3" fill="#555555"/>
   <text x="604" y="125" class="lang-name">Go</text>
@@ -57,7 +57,7 @@
   <rect x="604" y="164" width="256" height="10" rx="3" fill="#30363d"/>
   <rect x="604" y="164" width="10" height="10" rx="3" fill="#89e051"/>
   <text x="604" y="193" class="lang-name">m4</text>
-  <text x="860" y="193" class="lang-pct" text-anchor="end">1.9%</text>
+  <text x="860" y="193" class="lang-pct" text-anchor="end">1.8%</text>
   <rect x="604" y="198" width="256" height="10" rx="3" fill="#30363d"/>
   <rect x="604" y="198" width="4" height="10" rx="3" fill="#8b949e"/>
   <text x="604" y="227" class="lang-name">Java</text>
