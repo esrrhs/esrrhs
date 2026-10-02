@@ -123,7 +123,8 @@ jobs:
         run: |
           python3 << 'PYEOF'
           import json, os
-          from datetime import datetime
+          from datetime import datetime, timezone
+          from html import escape
 
           # --- Data ---
           total_stars = int(os.environ["TOTAL_STARS"])
@@ -136,8 +137,10 @@ jobs:
           lang_data = json.loads(os.environ["LANG_DATA"])
           top_repos = json.loads(os.environ["TOP_REPOS"])
 
-          created = datetime.strptime(created_at, "%Y-%m-%d")
-          years = (datetime.now() - created).days // 365
+          now = datetime.now(timezone.utc)
+          generated_at = now.isoformat(timespec="seconds")
+          created = datetime.strptime(created_at, "%Y-%m-%d").replace(tzinfo=timezone.utc)
+          years = (now - created).days // 365
 
           def fmt(n):
               if n >= 1000000: return f"{n/1000000:.1f}M"
@@ -204,6 +207,7 @@ jobs:
           # --- Build SVG ---
           s = []
           s.append(f'<svg xmlns="http://www.w3.org/2000/svg" width="{svg_w}" height="{svg_h}">')
+          s.append(f'  <!-- Generated at {generated_at} -->')
           s.append(f'  <defs>')
           s.append(f'    <style>')
           s.append(f'      .header {{ font: bold 14px "Segoe UI", Arial, sans-serif; fill: #c9d1d9; }}')
@@ -236,7 +240,7 @@ jobs:
           for i, repo in enumerate(top_repos):
               color = medal_colors[i]
               medal = medals[i]
-              s.append(f'  <text x="{x2 + padding}" y="{y + 14}" font-family="Segoe UI, Arial, sans-serif" font-size="13" fill="{color}">{medal} {repo["name"]}</text>')
+              s.append(f'  <text x="{x2 + padding}" y="{y + 14}" font-family="Segoe UI, Arial, sans-serif" font-size="13" fill="{color}">{medal} {escape(repo["name"])}</text>')
               s.append(f'  <text x="{x2 + col_w - padding}" y="{y + 14}" class="medal-value" text-anchor="end">⭐ {repo["stars"]}</text>')
               y += trophy_row_h
 
@@ -251,7 +255,7 @@ jobs:
               pct = code_lines / total_lang_lines * 100 if total_lang_lines else 0
               color = LANG_COLORS.get(lang, "#8b949e")
               filled = int(bar_w * pct / 100)
-              s.append(f'  <text x="{x3 + padding}" y="{y + 13}" class="lang-name">{lang}</text>')
+              s.append(f'  <text x="{x3 + padding}" y="{y + 13}" class="lang-name">{escape(lang)}</text>')
               s.append(f'  <text x="{x3 + col_w - padding}" y="{y + 13}" class="lang-pct" text-anchor="end">{pct:.1f}%</text>')
               s.append(f'  <rect x="{x3 + padding}" y="{y + 18}" width="{bar_w}" height="{bar_h}" rx="3" fill="#30363d"/>')
               s.append(f'  <rect x="{x3 + padding}" y="{y + 18}" width="{filled}" height="{bar_h}" rx="3" fill="{color}"/>')
@@ -261,6 +265,67 @@ jobs:
 
           with open("stats.svg", "w") as f:
               f.write("\n".join(s))
+
+          # Keep the standalone cards in sync with the unified SVG.
+          profile_items = [
+              ("⭐ Stars", fmt(total_stars)),
+              ("🍴 Forks", fmt(total_forks)),
+              ("📦 Repos", str(public_repos)),
+              ("👥 Followers", str(followers)),
+              ("💻 Code Lines", fmt(total_code)),
+              ("💬 Comments", fmt(total_comments)),
+              ("🎂 GitHub Age", f"{years} yrs"),
+          ]
+          profile_svg = [
+              '<svg xmlns="http://www.w3.org/2000/svg" width="280" height="232">',
+              f'  <!-- Generated at {generated_at} -->',
+              '  <rect width="280" height="232" rx="6" fill="#1b1f23"/>',
+              '  <text x="15" y="28" font-family="Segoe UI, Arial, sans-serif" font-size="14" font-weight="bold" fill="#c9d1d9">Profile Stats</text>',
+          ]
+          for i, (label, value) in enumerate(profile_items):
+              y = 50 + i * 26
+              profile_svg.append(f'  <text x="15" y="{y}" font-family="Segoe UI, Arial, sans-serif" font-size="13" fill="#8b949e">{label}</text>')
+              profile_svg.append(f'  <text x="265" y="{y}" font-family="Segoe UI, Arial, sans-serif" font-size="13" fill="#58a6ff" text-anchor="end">{value}</text>')
+          profile_svg.append('</svg>')
+          with open("profile.svg", "w") as f:
+              f.write("\n".join(profile_svg))
+
+          medal_colors = ["#FFD700", "#C0C0C0", "#CD7F32", "#8b949e", "#8b949e"]
+          medals = ["🥇", "🥈", "🥉", "4.", "5."]
+          trophy_height = 50 + len(top_repos) * 30
+          trophy_svg = [
+              f'<svg xmlns="http://www.w3.org/2000/svg" width="280" height="{trophy_height}">',
+              f'  <!-- Generated at {generated_at} -->',
+              f'  <rect width="280" height="{trophy_height}" rx="6" fill="#1b1f23"/>',
+              '  <text x="15" y="28" font-family="Segoe UI, Arial, sans-serif" font-size="14" font-weight="bold" fill="#c9d1d9">🏆 Top Repos</text>',
+          ]
+          for i, repo in enumerate(top_repos):
+              y = 52 + i * 30
+              trophy_svg.append(f'  <text x="15" y="{y}" font-family="Segoe UI, Arial, sans-serif" font-size="13" fill="{medal_colors[i]}">{medals[i]} {escape(repo["name"])}</text>')
+              trophy_svg.append(f'  <text x="265" y="{y}" font-family="Segoe UI, Arial, sans-serif" font-size="13" fill="#8b949e" text-anchor="end">⭐ {repo["stars"]}</text>')
+          trophy_svg.append('</svg>')
+          with open("trophy.svg", "w") as f:
+              f.write("\n".join(trophy_svg))
+
+          lang_height = 50 + len(top_langs) * 34
+          languages_svg = [
+              f'<svg xmlns="http://www.w3.org/2000/svg" width="280" height="{lang_height}">',
+              f'  <!-- Generated at {generated_at} -->',
+              f'  <rect width="280" height="{lang_height}" rx="6" fill="#1b1f23"/>',
+              '  <text x="15" y="28" font-family="Segoe UI, Arial, sans-serif" font-size="14" font-weight="bold" fill="#c9d1d9">Top Languages</text>',
+          ]
+          for i, (lang, code_lines) in enumerate(top_langs):
+              y = 48 + i * 34
+              pct = code_lines / total_lang_lines * 100 if total_lang_lines else 0
+              color = LANG_COLORS.get(lang, "#8b949e")
+              filled = int(250 * pct / 100)
+              languages_svg.append(f'  <text x="15" y="{y}" font-family="Segoe UI, Arial, sans-serif" font-size="12" fill="#c9d1d9">{escape(lang)}</text>')
+              languages_svg.append(f'  <text x="265" y="{y}" font-family="Segoe UI, Arial, sans-serif" font-size="12" fill="#8b949e" text-anchor="end">{pct:.1f}%</text>')
+              languages_svg.append(f'  <rect x="15" y="{y + 5}" width="250" height="10" rx="3" fill="#30363d"/>')
+              languages_svg.append(f'  <rect x="15" y="{y + 5}" width="{filled}" height="10" rx="3" fill="{color}"/>')
+          languages_svg.append('</svg>')
+          with open("languages.svg", "w") as f:
+              f.write("\n".join(languages_svg))
           PYEOF
         env:
           TOTAL_STARS: ${{ steps.data.outputs.total_stars }}
