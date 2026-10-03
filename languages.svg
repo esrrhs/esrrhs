@@ -1,5 +1,5 @@
 <svg xmlns="http://www.w3.org/2000/svg" width="280" height="254">
-  <!-- Generated at 2026-10-03T10:48:52+00:00 -->
+  <!-- Generated at 2026-10-03T15:24:34+00:00 -->
   <rect width="280" height="254" rx="6" fill="#1b1f23"/>
   <text x="15" y="28" font-family="Segoe UI, Arial, sans-serif" font-size="14" font-weight="bold" fill="#c9d1d9">Top Languages</text>
   <text x="15" y="48" font-family="Segoe UI, Arial, sans-serif" font-size="12" fill="#c9d1d9">C++</text>
@@ -7,7 +7,7 @@
   <rect x="15" y="53" width="250" height="10" rx="3" fill="#30363d"/>
   <rect x="15" y="53" width="134" height="10" rx="3" fill="#f34b7d"/>
   <text x="15" y="82" font-family="Segoe UI, Arial, sans-serif" font-size="12" fill="#c9d1d9">C</text>
-  <text x="265" y="82" font-family="Segoe UI, Arial, sans-serif" font-size="12" fill="#8b949e" text-anchor="end">25.3%</text>
+  <text x="265" y="82" font-family="Segoe UI, Arial, sans-serif" font-size="12" fill="#8b949e" text-anchor="end">25.2%</text>
   <rect x="15" y="87" width="250" height="10" rx="3" fill="#30363d"/>
   <rect x="15" y="87" width="63" height="10" rx="3" fill="#555555"/>
   <text x="15" y="116" font-family="Segoe UI, Arial, sans-serif" font-size="12" fill="#c9d1d9">Go</text>
