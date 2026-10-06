@@ -1,5 +1,5 @@
 <svg xmlns="http://www.w3.org/2000/svg" width="280" height="254">
-  <!-- Generated at 2026-10-05T23:28:28+00:00 -->
+  <!-- Generated at 2026-10-06T03:46:45+00:00 -->
   <rect width="280" height="254" rx="6" fill="#1b1f23"/>
   <text x="15" y="28" font-family="Segoe UI, Arial, sans-serif" font-size="14" font-weight="bold" fill="#c9d1d9">Top Languages</text>
   <text x="15" y="48" font-family="Segoe UI, Arial, sans-serif" font-size="12" fill="#c9d1d9">C++</text>
@@ -17,11 +17,11 @@
   <text x="15" y="150" font-family="Segoe UI, Arial, sans-serif" font-size="12" fill="#c9d1d9">Shell</text>
   <text x="265" y="150" font-family="Segoe UI, Arial, sans-serif" font-size="12" fill="#8b949e" text-anchor="end">4.0%</text>
   <rect x="15" y="155" width="250" height="10" rx="3" fill="#30363d"/>
-  <rect x="15" y="155" width="10" height="10" rx="3" fill="#89e051"/>
+  <rect x="15" y="155" width="9" height="10" rx="3" fill="#89e051"/>
   <text x="15" y="184" font-family="Segoe UI, Arial, sans-serif" font-size="12" fill="#c9d1d9">Java</text>
   <text x="265" y="184" font-family="Segoe UI, Arial, sans-serif" font-size="12" fill="#8b949e" text-anchor="end">2.0%</text>
   <rect x="15" y="189" width="250" height="10" rx="3" fill="#30363d"/>
-  <rect x="15" y="189" width="4" height="10" rx="3" fill="#b07219"/>
+  <rect x="15" y="189" width="5" height="10" rx="3" fill="#b07219"/>
   <text x="15" y="218" font-family="Segoe UI, Arial, sans-serif" font-size="12" fill="#c9d1d9">Lua</text>
   <text x="265" y="218" font-family="Segoe UI, Arial, sans-serif" font-size="12" fill="#8b949e" text-anchor="end">1.9%</text>
   <rect x="15" y="223" width="250" height="10" rx="3" fill="#30363d"/>
