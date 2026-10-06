@@ -1,17 +1,17 @@
 <svg xmlns="http://www.w3.org/2000/svg" width="280" height="254">
-  <!-- Generated at 2026-10-06T12:25:10+00:00 -->
+  <!-- Generated at 2026-10-06T22:02:05+00:00 -->
   <rect width="280" height="254" rx="6" fill="#1b1f23"/>
   <text x="15" y="28" font-family="Segoe UI, Arial, sans-serif" font-size="14" font-weight="bold" fill="#c9d1d9">Top Languages</text>
   <text x="15" y="48" font-family="Segoe UI, Arial, sans-serif" font-size="12" fill="#c9d1d9">C++</text>
-  <text x="265" y="48" font-family="Segoe UI, Arial, sans-serif" font-size="12" fill="#8b949e" text-anchor="end">53.6%</text>
+  <text x="265" y="48" font-family="Segoe UI, Arial, sans-serif" font-size="12" fill="#8b949e" text-anchor="end">53.5%</text>
   <rect x="15" y="53" width="250" height="10" rx="3" fill="#30363d"/>
-  <rect x="15" y="53" width="134" height="10" rx="3" fill="#f34b7d"/>
+  <rect x="15" y="53" width="133" height="10" rx="3" fill="#f34b7d"/>
   <text x="15" y="82" font-family="Segoe UI, Arial, sans-serif" font-size="12" fill="#c9d1d9">C</text>
-  <text x="265" y="82" font-family="Segoe UI, Arial, sans-serif" font-size="12" fill="#8b949e" text-anchor="end">25.0%</text>
+  <text x="265" y="82" font-family="Segoe UI, Arial, sans-serif" font-size="12" fill="#8b949e" text-anchor="end">24.9%</text>
   <rect x="15" y="87" width="250" height="10" rx="3" fill="#30363d"/>
   <rect x="15" y="87" width="62" height="10" rx="3" fill="#555555"/>
   <text x="15" y="116" font-family="Segoe UI, Arial, sans-serif" font-size="12" fill="#c9d1d9">Go</text>
-  <text x="265" y="116" font-family="Segoe UI, Arial, sans-serif" font-size="12" fill="#8b949e" text-anchor="end">6.5%</text>
+  <text x="265" y="116" font-family="Segoe UI, Arial, sans-serif" font-size="12" fill="#8b949e" text-anchor="end">6.7%</text>
   <rect x="15" y="121" width="250" height="10" rx="3" fill="#30363d"/>
   <rect x="15" y="121" width="16" height="10" rx="3" fill="#00ADD8"/>
   <text x="15" y="150" font-family="Segoe UI, Arial, sans-serif" font-size="12" fill="#c9d1d9">Shell</text>
