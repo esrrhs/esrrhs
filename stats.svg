@@ -1,5 +1,5 @@
 <svg xmlns="http://www.w3.org/2000/svg" width="872" height="272">
-  <!-- Generated at 2026-10-08T03:29:29+00:00 -->
+  <!-- Generated at 2026-10-08T12:27:12+00:00 -->
   <defs>
     <style>
       .header { font: bold 14px "Segoe UI", Arial, sans-serif; fill: #c9d1d9; }
@@ -24,7 +24,7 @@
   <text x="12" y="154" class="label">💻 Code Lines</text>
   <text x="268" y="154" class="value" text-anchor="end">6.3M</text>
   <text x="12" y="178" class="label">💬 Comments</text>
-  <text x="268" y="178" class="value" text-anchor="end">681.3K</text>
+  <text x="268" y="178" class="value" text-anchor="end">678.9K</text>
   <text x="12" y="202" class="label">🎂 GitHub Age</text>
   <text x="268" y="202" class="value" text-anchor="end">13 yrs</text>
   <rect x="296" y="0" width="280" height="272" rx="8" fill="#161b22"/>
@@ -42,7 +42,7 @@
   <rect x="592" y="0" width="280" height="272" rx="8" fill="#161b22"/>
   <text x="604" y="30" class="header">💻 Top Languages</text>
   <text x="604" y="57" class="lang-name">C++</text>
-  <text x="860" y="57" class="lang-pct" text-anchor="end">53.5%</text>
+  <text x="860" y="57" class="lang-pct" text-anchor="end">53.4%</text>
   <rect x="604" y="62" width="256" height="10" rx="3" fill="#30363d"/>
   <rect x="604" y="62" width="136" height="10" rx="3" fill="#f34b7d"/>
   <text x="604" y="91" class="lang-name">C</text>
