@@ -1,9 +1,9 @@
 <svg xmlns="http://www.w3.org/2000/svg" width="280" height="254">
-  <!-- Generated at 2026-10-10T03:15:24+00:00 -->
+  <!-- Generated at 2026-10-10T11:34:00+00:00 -->
   <rect width="280" height="254" rx="6" fill="#1b1f23"/>
   <text x="15" y="28" font-family="Segoe UI, Arial, sans-serif" font-size="14" font-weight="bold" fill="#c9d1d9">Top Languages</text>
   <text x="15" y="48" font-family="Segoe UI, Arial, sans-serif" font-size="12" fill="#c9d1d9">C++</text>
-  <text x="265" y="48" font-family="Segoe UI, Arial, sans-serif" font-size="12" fill="#8b949e" text-anchor="end">53.2%</text>
+  <text x="265" y="48" font-family="Segoe UI, Arial, sans-serif" font-size="12" fill="#8b949e" text-anchor="end">53.3%</text>
   <rect x="15" y="53" width="250" height="10" rx="3" fill="#30363d"/>
   <rect x="15" y="53" width="133" height="10" rx="3" fill="#f34b7d"/>
   <text x="15" y="82" font-family="Segoe UI, Arial, sans-serif" font-size="12" fill="#c9d1d9">C</text>
