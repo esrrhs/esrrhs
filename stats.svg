@@ -1,5 +1,5 @@
 <svg xmlns="http://www.w3.org/2000/svg" width="872" height="272">
-  <!-- Generated at 2026-10-14T10:51:06+00:00 -->
+  <!-- Generated at 2026-10-14T16:10:33+00:00 -->
   <defs>
     <style>
       .header { font: bold 14px "Segoe UI", Arial, sans-serif; fill: #c9d1d9; }
@@ -24,7 +24,7 @@
   <text x="12" y="154" class="label">💻 Code Lines</text>
   <text x="268" y="154" class="value" text-anchor="end">6.6M</text>
   <text x="12" y="178" class="label">💬 Comments</text>
-  <text x="268" y="178" class="value" text-anchor="end">735.0K</text>
+  <text x="268" y="178" class="value" text-anchor="end">736.0K</text>
   <text x="12" y="202" class="label">🎂 GitHub Age</text>
   <text x="268" y="202" class="value" text-anchor="end">13 yrs</text>
   <rect x="296" y="0" width="280" height="272" rx="8" fill="#161b22"/>
@@ -34,7 +34,7 @@
   <text x="308" y="84" font-family="Segoe UI, Arial, sans-serif" font-size="13" fill="#C0C0C0">🥈 spp</text>
   <text x="564" y="84" class="medal-value" text-anchor="end">⭐ 916</text>
   <text x="308" y="110" font-family="Segoe UI, Arial, sans-serif" font-size="13" fill="#CD7F32">🥉 atmosphere-switch</text>
-  <text x="564" y="110" class="medal-value" text-anchor="end">⭐ 528</text>
+  <text x="564" y="110" class="medal-value" text-anchor="end">⭐ 529</text>
   <text x="308" y="136" font-family="Segoe UI, Arial, sans-serif" font-size="13" fill="#8b949e">4. majiang_algorithm</text>
   <text x="564" y="136" class="medal-value" text-anchor="end">⭐ 482</text>
   <text x="308" y="162" font-family="Segoe UI, Arial, sans-serif" font-size="13" fill="#8b949e">5. xiaohuangji</text>
@@ -42,15 +42,15 @@
   <rect x="592" y="0" width="280" height="272" rx="8" fill="#161b22"/>
   <text x="604" y="30" class="header">💻 Top Languages</text>
   <text x="604" y="57" class="lang-name">C++</text>
-  <text x="860" y="57" class="lang-pct" text-anchor="end">44.8%</text>
+  <text x="860" y="57" class="lang-pct" text-anchor="end">44.6%</text>
   <rect x="604" y="62" width="256" height="10" rx="3" fill="#30363d"/>
   <rect x="604" y="62" width="114" height="10" rx="3" fill="#f34b7d"/>
   <text x="604" y="91" class="lang-name">Go</text>
-  <text x="860" y="91" class="lang-pct" text-anchor="end">20.8%</text>
+  <text x="860" y="91" class="lang-pct" text-anchor="end">21.1%</text>
   <rect x="604" y="96" width="256" height="10" rx="3" fill="#30363d"/>
   <rect x="604" y="96" width="53" height="10" rx="3" fill="#00ADD8"/>
   <text x="604" y="125" class="lang-name">C</text>
-  <text x="860" y="125" class="lang-pct" text-anchor="end">20.7%</text>
+  <text x="860" y="125" class="lang-pct" text-anchor="end">20.6%</text>
   <rect x="604" y="130" width="256" height="10" rx="3" fill="#30363d"/>
   <rect x="604" y="130" width="52" height="10" rx="3" fill="#555555"/>
   <text x="604" y="159" class="lang-name">Shell</text>
