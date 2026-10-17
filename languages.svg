@@ -1,9 +1,9 @@
 <svg xmlns="http://www.w3.org/2000/svg" width="280" height="254">
-  <!-- Generated at 2026-10-17T14:37:58+00:00 -->
+  <!-- Generated at 2026-10-17T19:50:51+00:00 -->
   <rect width="280" height="254" rx="6" fill="#1b1f23"/>
   <text x="15" y="28" font-family="Segoe UI, Arial, sans-serif" font-size="14" font-weight="bold" fill="#c9d1d9">Top Languages</text>
   <text x="15" y="48" font-family="Segoe UI, Arial, sans-serif" font-size="12" fill="#c9d1d9">C++</text>
-  <text x="265" y="48" font-family="Segoe UI, Arial, sans-serif" font-size="12" fill="#8b949e" text-anchor="end">43.8%</text>
+  <text x="265" y="48" font-family="Segoe UI, Arial, sans-serif" font-size="12" fill="#8b949e" text-anchor="end">43.7%</text>
   <rect x="15" y="53" width="250" height="10" rx="3" fill="#30363d"/>
   <rect x="15" y="53" width="109" height="10" rx="3" fill="#f34b7d"/>
   <text x="15" y="82" font-family="Segoe UI, Arial, sans-serif" font-size="12" fill="#c9d1d9">Go</text>
@@ -19,11 +19,11 @@
   <rect x="15" y="155" width="250" height="10" rx="3" fill="#30363d"/>
   <rect x="15" y="155" width="8" height="10" rx="3" fill="#89e051"/>
   <text x="15" y="184" font-family="Segoe UI, Arial, sans-serif" font-size="12" fill="#c9d1d9">Lua</text>
-  <text x="265" y="184" font-family="Segoe UI, Arial, sans-serif" font-size="12" fill="#8b949e" text-anchor="end">3.0%</text>
+  <text x="265" y="184" font-family="Segoe UI, Arial, sans-serif" font-size="12" fill="#8b949e" text-anchor="end">3.1%</text>
   <rect x="15" y="189" width="250" height="10" rx="3" fill="#30363d"/>
   <rect x="15" y="189" width="7" height="10" rx="3" fill="#000080"/>
   <text x="15" y="218" font-family="Segoe UI, Arial, sans-serif" font-size="12" fill="#c9d1d9">Java</text>
-  <text x="265" y="218" font-family="Segoe UI, Arial, sans-serif" font-size="12" fill="#8b949e" text-anchor="end">2.3%</text>
+  <text x="265" y="218" font-family="Segoe UI, Arial, sans-serif" font-size="12" fill="#8b949e" text-anchor="end">2.4%</text>
   <rect x="15" y="223" width="250" height="10" rx="3" fill="#30363d"/>
   <rect x="15" y="223" width="5" height="10" rx="3" fill="#b07219"/>
 </svg>
