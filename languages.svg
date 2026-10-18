@@ -1,29 +1,29 @@
 <svg xmlns="http://www.w3.org/2000/svg" width="280" height="254">
-  <!-- Generated at 2026-10-18T15:05:09+00:00 -->
+  <!-- Generated at 2026-10-18T19:51:30+00:00 -->
   <rect width="280" height="254" rx="6" fill="#1b1f23"/>
   <text x="15" y="28" font-family="Segoe UI, Arial, sans-serif" font-size="14" font-weight="bold" fill="#c9d1d9">Top Languages</text>
   <text x="15" y="48" font-family="Segoe UI, Arial, sans-serif" font-size="12" fill="#c9d1d9">C++</text>
-  <text x="265" y="48" font-family="Segoe UI, Arial, sans-serif" font-size="12" fill="#8b949e" text-anchor="end">43.3%</text>
+  <text x="265" y="48" font-family="Segoe UI, Arial, sans-serif" font-size="12" fill="#8b949e" text-anchor="end">42.5%</text>
   <rect x="15" y="53" width="250" height="10" rx="3" fill="#30363d"/>
-  <rect x="15" y="53" width="108" height="10" rx="3" fill="#f34b7d"/>
-  <text x="15" y="82" font-family="Segoe UI, Arial, sans-serif" font-size="12" fill="#c9d1d9">Go</text>
-  <text x="265" y="82" font-family="Segoe UI, Arial, sans-serif" font-size="12" fill="#8b949e" text-anchor="end">21.3%</text>
+  <rect x="15" y="53" width="106" height="10" rx="3" fill="#f34b7d"/>
+  <text x="15" y="82" font-family="Segoe UI, Arial, sans-serif" font-size="12" fill="#c9d1d9">C</text>
+  <text x="265" y="82" font-family="Segoe UI, Arial, sans-serif" font-size="12" fill="#8b949e" text-anchor="end">21.7%</text>
   <rect x="15" y="87" width="250" height="10" rx="3" fill="#30363d"/>
-  <rect x="15" y="87" width="53" height="10" rx="3" fill="#00ADD8"/>
-  <text x="15" y="116" font-family="Segoe UI, Arial, sans-serif" font-size="12" fill="#c9d1d9">C</text>
-  <text x="265" y="116" font-family="Segoe UI, Arial, sans-serif" font-size="12" fill="#8b949e" text-anchor="end">20.4%</text>
+  <rect x="15" y="87" width="54" height="10" rx="3" fill="#555555"/>
+  <text x="15" y="116" font-family="Segoe UI, Arial, sans-serif" font-size="12" fill="#c9d1d9">Go</text>
+  <text x="265" y="116" font-family="Segoe UI, Arial, sans-serif" font-size="12" fill="#8b949e" text-anchor="end">20.9%</text>
   <rect x="15" y="121" width="250" height="10" rx="3" fill="#30363d"/>
-  <rect x="15" y="121" width="51" height="10" rx="3" fill="#555555"/>
+  <rect x="15" y="121" width="52" height="10" rx="3" fill="#00ADD8"/>
   <text x="15" y="150" font-family="Segoe UI, Arial, sans-serif" font-size="12" fill="#c9d1d9">Shell</text>
   <text x="265" y="150" font-family="Segoe UI, Arial, sans-serif" font-size="12" fill="#8b949e" text-anchor="end">3.2%</text>
   <rect x="15" y="155" width="250" height="10" rx="3" fill="#30363d"/>
   <rect x="15" y="155" width="8" height="10" rx="3" fill="#89e051"/>
   <text x="15" y="184" font-family="Segoe UI, Arial, sans-serif" font-size="12" fill="#c9d1d9">Lua</text>
-  <text x="265" y="184" font-family="Segoe UI, Arial, sans-serif" font-size="12" fill="#8b949e" text-anchor="end">3.2%</text>
+  <text x="265" y="184" font-family="Segoe UI, Arial, sans-serif" font-size="12" fill="#8b949e" text-anchor="end">3.1%</text>
   <rect x="15" y="189" width="250" height="10" rx="3" fill="#30363d"/>
   <rect x="15" y="189" width="7" height="10" rx="3" fill="#000080"/>
   <text x="15" y="218" font-family="Segoe UI, Arial, sans-serif" font-size="12" fill="#c9d1d9">Java</text>
-  <text x="265" y="218" font-family="Segoe UI, Arial, sans-serif" font-size="12" fill="#8b949e" text-anchor="end">2.8%</text>
+  <text x="265" y="218" font-family="Segoe UI, Arial, sans-serif" font-size="12" fill="#8b949e" text-anchor="end">2.9%</text>
   <rect x="15" y="223" width="250" height="10" rx="3" fill="#30363d"/>
   <rect x="15" y="223" width="7" height="10" rx="3" fill="#b07219"/>
 </svg>
