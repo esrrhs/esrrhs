@@ -1,5 +1,5 @@
 <svg xmlns="http://www.w3.org/2000/svg" width="872" height="272">
-  <!-- Generated at 2026-10-22T10:59:34+00:00 -->
+  <!-- Generated at 2026-10-22T16:16:30+00:00 -->
   <defs>
     <style>
       .header { font: bold 14px "Segoe UI", Arial, sans-serif; fill: #c9d1d9; }
@@ -22,9 +22,9 @@
   <text x="12" y="130" class="label">👥 Followers</text>
   <text x="268" y="130" class="value" text-anchor="end">675</text>
   <text x="12" y="154" class="label">💻 Code Lines</text>
-  <text x="268" y="154" class="value" text-anchor="end">6.8M</text>
+  <text x="268" y="154" class="value" text-anchor="end">4.4M</text>
   <text x="12" y="178" class="label">💬 Comments</text>
-  <text x="268" y="178" class="value" text-anchor="end">773.1K</text>
+  <text x="268" y="178" class="value" text-anchor="end">172.0K</text>
   <text x="12" y="202" class="label">🎂 GitHub Age</text>
   <text x="268" y="202" class="value" text-anchor="end">13 yrs</text>
   <rect x="296" y="0" width="280" height="272" rx="8" fill="#161b22"/>
@@ -41,28 +41,28 @@
   <text x="564" y="162" class="medal-value" text-anchor="end">⭐ 449</text>
   <rect x="592" y="0" width="280" height="272" rx="8" fill="#161b22"/>
   <text x="604" y="30" class="header">💻 Top Languages</text>
-  <text x="604" y="57" class="lang-name">C++</text>
-  <text x="860" y="57" class="lang-pct" text-anchor="end">42.3%</text>
+  <text x="604" y="57" class="lang-name">Go</text>
+  <text x="860" y="57" class="lang-pct" text-anchor="end">41.1%</text>
   <rect x="604" y="62" width="256" height="10" rx="3" fill="#30363d"/>
-  <rect x="604" y="62" width="108" height="10" rx="3" fill="#f34b7d"/>
+  <rect x="604" y="62" width="105" height="10" rx="3" fill="#00ADD8"/>
   <text x="604" y="91" class="lang-name">C</text>
-  <text x="860" y="91" class="lang-pct" text-anchor="end">21.5%</text>
+  <text x="860" y="91" class="lang-pct" text-anchor="end">30.5%</text>
   <rect x="604" y="96" width="256" height="10" rx="3" fill="#30363d"/>
-  <rect x="604" y="96" width="55" height="10" rx="3" fill="#555555"/>
-  <text x="604" y="125" class="lang-name">Go</text>
-  <text x="860" y="125" class="lang-pct" text-anchor="end">21.3%</text>
+  <rect x="604" y="96" width="77" height="10" rx="3" fill="#555555"/>
+  <text x="604" y="125" class="lang-name">C++</text>
+  <text x="860" y="125" class="lang-pct" text-anchor="end">10.8%</text>
   <rect x="604" y="130" width="256" height="10" rx="3" fill="#30363d"/>
-  <rect x="604" y="130" width="54" height="10" rx="3" fill="#00ADD8"/>
-  <text x="604" y="159" class="lang-name">Shell</text>
-  <text x="860" y="159" class="lang-pct" text-anchor="end">3.2%</text>
+  <rect x="604" y="130" width="27" height="10" rx="3" fill="#f34b7d"/>
+  <text x="604" y="159" class="lang-name">Lua</text>
+  <text x="860" y="159" class="lang-pct" text-anchor="end">5.8%</text>
   <rect x="604" y="164" width="256" height="10" rx="3" fill="#30363d"/>
-  <rect x="604" y="164" width="8" height="10" rx="3" fill="#89e051"/>
-  <text x="604" y="193" class="lang-name">Lua</text>
-  <text x="860" y="193" class="lang-pct" text-anchor="end">3.2%</text>
+  <rect x="604" y="164" width="14" height="10" rx="3" fill="#000080"/>
+  <text x="604" y="193" class="lang-name">Java</text>
+  <text x="860" y="193" class="lang-pct" text-anchor="end">5.7%</text>
   <rect x="604" y="198" width="256" height="10" rx="3" fill="#30363d"/>
-  <rect x="604" y="198" width="8" height="10" rx="3" fill="#000080"/>
-  <text x="604" y="227" class="lang-name">Java</text>
-  <text x="860" y="227" class="lang-pct" text-anchor="end">2.9%</text>
+  <rect x="604" y="198" width="14" height="10" rx="3" fill="#b07219"/>
+  <text x="604" y="227" class="lang-name">Assembly</text>
+  <text x="860" y="227" class="lang-pct" text-anchor="end">1.4%</text>
   <rect x="604" y="232" width="256" height="10" rx="3" fill="#30363d"/>
-  <rect x="604" y="232" width="7" height="10" rx="3" fill="#b07219"/>
+  <rect x="604" y="232" width="3" height="10" rx="3" fill="#6E4C13"/>
 </svg>
