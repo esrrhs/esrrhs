@@ -1,5 +1,5 @@
 <svg xmlns="http://www.w3.org/2000/svg" width="872" height="272">
-  <!-- Generated at 2026-10-23T10:47:41+00:00 -->
+  <!-- Generated at 2026-10-23T16:05:34+00:00 -->
   <defs>
     <style>
       .header { font: bold 14px "Segoe UI", Arial, sans-serif; fill: #c9d1d9; }
@@ -20,9 +20,9 @@
   <text x="12" y="106" class="label">📦 Repos</text>
   <text x="268" y="106" class="value" text-anchor="end">70</text>
   <text x="12" y="130" class="label">👥 Followers</text>
-  <text x="268" y="130" class="value" text-anchor="end">675</text>
+  <text x="268" y="130" class="value" text-anchor="end">674</text>
   <text x="12" y="154" class="label">💻 Code Size</text>
-  <text x="268" y="154" class="value" text-anchor="end">36.3M</text>
+  <text x="268" y="154" class="value" text-anchor="end">36.4M</text>
   <text x="12" y="178" class="label">🎂 GitHub Age</text>
   <text x="268" y="178" class="value" text-anchor="end">13 yrs</text>
   <rect x="296" y="0" width="280" height="272" rx="8" fill="#161b22"/>
@@ -48,9 +48,9 @@
   <rect x="604" y="96" width="256" height="10" rx="3" fill="#30363d"/>
   <rect x="604" y="96" width="48" height="10" rx="3" fill="#f34b7d"/>
   <text x="604" y="125" class="lang-name">Go</text>
-  <text x="860" y="125" class="lang-pct" text-anchor="end">18.3%</text>
+  <text x="860" y="125" class="lang-pct" text-anchor="end">18.4%</text>
   <rect x="604" y="130" width="256" height="10" rx="3" fill="#30363d"/>
-  <rect x="604" y="130" width="46" height="10" rx="3" fill="#00ADD8"/>
+  <rect x="604" y="130" width="47" height="10" rx="3" fill="#00ADD8"/>
   <text x="604" y="159" class="lang-name">Java</text>
   <text x="860" y="159" class="lang-pct" text-anchor="end">9.6%</text>
   <rect x="604" y="164" width="256" height="10" rx="3" fill="#30363d"/>
