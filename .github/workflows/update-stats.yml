@@ -14,9 +14,6 @@ jobs:
     steps:
       - uses: actions/checkout@v4
 
-      - name: Install cloc
-        run: sudo apt-get update && sudo apt-get install -y cloc
-
       - name: Collect all data
         id: data
         run: |
@@ -55,24 +52,17 @@ jobs:
           top_repos_data = [{"name": r["name"], "stars": r["stargazers_count"],
                              "lang": r.get("language") or ""} for r in top_repos]
 
-          # Clone repos and count lines with cloc
+          # Keep shallow clone of every repo for future local analysis.
+          # Language ranking uses GitHub Languages API bytes (not cloc lines).
           clone_dir = os.path.join(os.environ["RUNNER_TEMP"], "repos")
           os.makedirs(clone_dir, exist_ok=True)
 
-          SKIP_LANGS = {"Text", "C/C++ Header", "Markdown", "JSON", "YAML", "TOML",
+          SKIP_LANGS = {"Text", "Markdown", "JSON", "YAML", "TOML",
                          "XML", "HTML", "CSS", "INI", "SQL", "SVG", "Dockerfile",
-                         "make", "Makefile", "CMake", "QMake", "M4", "Gradle",
-                         "Maven"}
+                         "Makefile", "CMake", "QMake", "M4", "Gradle",
+                         "Maven", "Batchfile", "PowerShell"}
 
-          LANG_ALIASES = {
-              "Bourne Again Shell": "Shell",
-              "Bourne Shell": "Shell",
-              "POSIX Shell": "Shell",
-          }
-
-          lang_lines = {}
-          total_code_lines = 0
-          total_comment_lines = 0
+          lang_bytes = {}
           for r in repos:
               clone_url = r["clone_url"]
               repo_dir = os.path.join(clone_dir, r["name"])
@@ -80,28 +70,18 @@ jobs:
               subprocess.run(["git", "clone", "--depth=1", auth_url, repo_dir],
                              stdout=subprocess.DEVNULL, stderr=subprocess.DEVNULL)
 
-              result = subprocess.run(
-                  ["cloc", repo_dir, "--json", "--quiet", "--not-match-d=vendor,node_modules,.git"],
-                  capture_output=True, text=True
-              )
               try:
-                  cloc_data = json.loads(result.stdout)
-              except json.JSONDecodeError:
+                  langs = api_get(r["languages_url"])
+              except Exception:
                   continue
 
-              for lang, info in cloc_data.items():
-                  if lang == "SUM":
-                      total_code_lines += info.get("code", 0)
-                      total_comment_lines += info.get("comment", 0)
+              for lang, size in langs.items():
+                  if lang in SKIP_LANGS or size <= 0:
                       continue
-                  if lang == "header" or lang in SKIP_LANGS:
-                      continue
-                  code = info.get("code", 0)
-                  if code > 0:
-                      lang = LANG_ALIASES.get(lang, lang)
-                      lang_lines[lang] = lang_lines.get(lang, 0) + code
+                  lang_bytes[lang] = lang_bytes.get(lang, 0) + size
 
-          sorted_langs = sorted(lang_lines.items(), key=lambda x: -x[1])
+          sorted_langs = sorted(lang_bytes.items(), key=lambda x: -x[1])
+          total_code_bytes = sum(v for _, v in sorted_langs)
 
           with open(os.environ["GITHUB_OUTPUT"], "a") as f:
               f.write(f"total_stars={total_stars}\n")
@@ -110,8 +90,7 @@ jobs:
               f.write(f"followers={profile['followers']}\n")
               f.write(f"following={profile['following']}\n")
               f.write(f"created_at={profile['created_at'][:10]}\n")
-              f.write(f"total_code_lines={total_code_lines}\n")
-              f.write(f"total_comment_lines={total_comment_lines}\n")
+              f.write(f"total_code_bytes={total_code_bytes}\n")
               f.write(f"lang_data={json.dumps(sorted_langs)}\n")
               f.write(f"top_repos={json.dumps(top_repos_data)}\n")
           PYEOF
@@ -132,8 +111,7 @@ jobs:
           public_repos = int(os.environ["PUBLIC_REPOS"])
           followers = int(os.environ["FOLLOWERS"])
           created_at = os.environ["CREATED_AT"]
-          total_code = int(os.environ["TOTAL_CODE_LINES"])
-          total_comments = int(os.environ["TOTAL_COMMENT_LINES"])
+          total_code = int(os.environ["TOTAL_CODE_BYTES"])
           lang_data = json.loads(os.environ["LANG_DATA"])
           top_repos = json.loads(os.environ["TOP_REPOS"])
 
@@ -160,8 +138,7 @@ jobs:
               ("🍴 Forks", fmt(total_forks)),
               ("📦 Repos", str(public_repos)),
               ("👥 Followers", str(followers)),
-              ("💻 Code Lines", fmt(total_code)),
-              ("💬 Comments", fmt(total_comments)),
+              ("💻 Code Size", fmt(total_code)),
               ("🎂 GitHub Age", f"{years} yrs"),
           ]
           profile_row_h = 24
@@ -188,7 +165,7 @@ jobs:
               "m4": "#8b949e",
           }
           top_langs = lang_data[:6]
-          total_lang_lines = sum(v for _, v in lang_data)
+          total_lang_bytes = sum(v for _, v in lang_data)
           lang_row_h = 34
 
           # Calculate each column's content height
@@ -251,8 +228,8 @@ jobs:
           bar_h = 10
           bar_w = col_inner
           y = padding + header_h
-          for lang, code_lines in top_langs:
-              pct = code_lines / total_lang_lines * 100 if total_lang_lines else 0
+          for lang, code_bytes in top_langs:
+              pct = code_bytes / total_lang_bytes * 100 if total_lang_bytes else 0
               color = LANG_COLORS.get(lang, "#8b949e")
               filled = int(bar_w * pct / 100)
               s.append(f'  <text x="{x3 + padding}" y="{y + 13}" class="lang-name">{escape(lang)}</text>')
@@ -272,14 +249,14 @@ jobs:
               ("🍴 Forks", fmt(total_forks)),
               ("📦 Repos", str(public_repos)),
               ("👥 Followers", str(followers)),
-              ("💻 Code Lines", fmt(total_code)),
-              ("💬 Comments", fmt(total_comments)),
+              ("💻 Code Size", fmt(total_code)),
               ("🎂 GitHub Age", f"{years} yrs"),
           ]
+          profile_height = 50 + len(profile_items) * 26
           profile_svg = [
-              '<svg xmlns="http://www.w3.org/2000/svg" width="280" height="232">',
+              f'<svg xmlns="http://www.w3.org/2000/svg" width="280" height="{profile_height}">',
               f'  <!-- Generated at {generated_at} -->',
-              '  <rect width="280" height="232" rx="6" fill="#1b1f23"/>',
+              f'  <rect width="280" height="{profile_height}" rx="6" fill="#1b1f23"/>',
               '  <text x="15" y="28" font-family="Segoe UI, Arial, sans-serif" font-size="14" font-weight="bold" fill="#c9d1d9">Profile Stats</text>',
           ]
           for i, (label, value) in enumerate(profile_items):
@@ -314,9 +291,9 @@ jobs:
               f'  <rect width="280" height="{lang_height}" rx="6" fill="#1b1f23"/>',
               '  <text x="15" y="28" font-family="Segoe UI, Arial, sans-serif" font-size="14" font-weight="bold" fill="#c9d1d9">Top Languages</text>',
           ]
-          for i, (lang, code_lines) in enumerate(top_langs):
+          for i, (lang, code_bytes) in enumerate(top_langs):
               y = 48 + i * 34
-              pct = code_lines / total_lang_lines * 100 if total_lang_lines else 0
+              pct = code_bytes / total_lang_bytes * 100 if total_lang_bytes else 0
               color = LANG_COLORS.get(lang, "#8b949e")
               filled = int(250 * pct / 100)
               languages_svg.append(f'  <text x="15" y="{y}" font-family="Segoe UI, Arial, sans-serif" font-size="12" fill="#c9d1d9">{escape(lang)}</text>')
@@ -333,8 +310,7 @@ jobs:
           PUBLIC_REPOS: ${{ steps.data.outputs.public_repos }}
           FOLLOWERS: ${{ steps.data.outputs.followers }}
           CREATED_AT: ${{ steps.data.outputs.created_at }}
-          TOTAL_CODE_LINES: ${{ steps.data.outputs.total_code_lines }}
-          TOTAL_COMMENT_LINES: ${{ steps.data.outputs.total_comment_lines }}
+          TOTAL_CODE_BYTES: ${{ steps.data.outputs.total_code_bytes }}
           LANG_DATA: ${{ steps.data.outputs.lang_data }}
           TOP_REPOS: ${{ steps.data.outputs.top_repos }}
 
