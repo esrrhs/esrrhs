@@ -1,5 +1,5 @@
 <svg xmlns="http://www.w3.org/2000/svg" width="872" height="272">
-  <!-- Generated at 2026-10-27T21:36:32+00:00 -->
+  <!-- Generated at 2026-10-28T02:58:13+00:00 -->
   <defs>
     <style>
       .header { font: bold 14px "Segoe UI", Arial, sans-serif; fill: #c9d1d9; }
@@ -20,7 +20,7 @@
   <text x="12" y="106" class="label">📦 Repos</text>
   <text x="268" y="106" class="value" text-anchor="end">73</text>
   <text x="12" y="130" class="label">👥 Followers</text>
-  <text x="268" y="130" class="value" text-anchor="end">675</text>
+  <text x="268" y="130" class="value" text-anchor="end">674</text>
   <text x="12" y="154" class="label">💻 Code Size</text>
   <text x="268" y="154" class="value" text-anchor="end">39.6M</text>
   <text x="12" y="178" class="label">🎂 GitHub Age</text>
@@ -44,7 +44,7 @@
   <rect x="604" y="62" width="256" height="10" rx="3" fill="#30363d"/>
   <rect x="604" y="62" width="103" height="10" rx="3" fill="#555555"/>
   <text x="604" y="91" class="lang-name">C++</text>
-  <text x="860" y="91" class="lang-pct" text-anchor="end">19.6%</text>
+  <text x="860" y="91" class="lang-pct" text-anchor="end">19.7%</text>
   <rect x="604" y="96" width="256" height="10" rx="3" fill="#30363d"/>
   <rect x="604" y="96" width="50" height="10" rx="3" fill="#f34b7d"/>
   <text x="604" y="125" class="lang-name">Go</text>
