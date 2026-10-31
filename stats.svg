@@ -1,5 +1,5 @@
 <svg xmlns="http://www.w3.org/2000/svg" width="872" height="272">
-  <!-- Generated at 2026-10-31T16:30:10+00:00 -->
+  <!-- Generated at 2026-10-31T20:47:26+00:00 -->
   <defs>
     <style>
       .header { font: bold 14px "Segoe UI", Arial, sans-serif; fill: #c9d1d9; }
@@ -30,7 +30,7 @@
   <text x="308" y="58" font-family="Segoe UI, Arial, sans-serif" font-size="13" fill="#FFD700">🥇 pingtunnel</text>
   <text x="564" y="58" class="medal-value" text-anchor="end">⭐ 3743</text>
   <text x="308" y="84" font-family="Segoe UI, Arial, sans-serif" font-size="13" fill="#C0C0C0">🥈 spp</text>
-  <text x="564" y="84" class="medal-value" text-anchor="end">⭐ 918</text>
+  <text x="564" y="84" class="medal-value" text-anchor="end">⭐ 917</text>
   <text x="308" y="110" font-family="Segoe UI, Arial, sans-serif" font-size="13" fill="#CD7F32">🥉 atmosphere-switch</text>
   <text x="564" y="110" class="medal-value" text-anchor="end">⭐ 533</text>
   <text x="308" y="136" font-family="Segoe UI, Arial, sans-serif" font-size="13" fill="#8b949e">4. majiang_algorithm</text>
