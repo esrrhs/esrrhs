@@ -1,5 +1,5 @@
 <svg xmlns="http://www.w3.org/2000/svg" width="872" height="272">
-  <!-- Generated at 2026-10-31T20:47:26+00:00 -->
+  <!-- Generated at 2026-11-01T03:06:14+00:00 -->
   <defs>
     <style>
       .header { font: bold 14px "Segoe UI", Arial, sans-serif; fill: #c9d1d9; }
@@ -56,7 +56,7 @@
   <rect x="604" y="164" width="256" height="10" rx="3" fill="#30363d"/>
   <rect x="604" y="164" width="21" height="10" rx="3" fill="#b07219"/>
   <text x="604" y="193" class="lang-name">Lua</text>
-  <text x="860" y="193" class="lang-pct" text-anchor="end">5.2%</text>
+  <text x="860" y="193" class="lang-pct" text-anchor="end">5.3%</text>
   <rect x="604" y="198" width="256" height="10" rx="3" fill="#30363d"/>
   <rect x="604" y="198" width="13" height="10" rx="3" fill="#000080"/>
   <text x="604" y="227" class="lang-name">Kotlin</text>
